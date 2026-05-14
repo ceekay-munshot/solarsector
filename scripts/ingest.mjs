@@ -97,7 +97,6 @@ function guessStage(text, fallback) {
 function parseSeciTenders(html, defaultStage) {
   const rows = html.match(/<tr[\s\S]*?<\/tr>/gi) ?? [];
   const records = [];
-  let idx = 0;
   for (const row of rows) {
     const text = row
       .replace(/<[^>]+>/g, " ")
@@ -114,7 +113,6 @@ function parseSeciTenders(html, defaultStage) {
     const parsedDate = dateMatch ? new Date(dateMatch[1].replace(/[-.]/g, "/")) : new Date();
     const when = Number.isNaN(parsedDate.getTime()) ? new Date() : parsedDate;
     records.push({
-      id: `seci-live-${idx++}`,
       title: text.slice(0, 96),
       agency: "SECI",
       tech: guessTech(text),
@@ -139,14 +137,17 @@ async function ingestSeci(now) {
   if (a.ok) records = records.concat(parseSeciTenders(a.body, "Announced"));
   if (b.ok) records = records.concat(parseSeciTenders(b.body, "Awarded"));
 
-  // De-dupe on title + capacity.
+  // De-dupe on title + capacity, then assign ids over the de-duped set so the
+  // two parse passes (tenders + results) can't emit colliding ids.
   const seen = new Set();
-  records = records.filter((r) => {
-    const key = `${r.title}|${r.capacityMW}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  records = records
+    .filter((r) => {
+      const key = `${r.title}|${r.capacityMW}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .map((r, i) => ({ id: `seci-live-${i}`, ...r }));
 
   if (records.length > 0) {
     return {
