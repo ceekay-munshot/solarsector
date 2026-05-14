@@ -25,6 +25,15 @@ const seciSnapshot = seciRaw as unknown as SeciLiveSnapshot;
 export const tenderData = resolveTenderData(tenderMock, seciSnapshot);
 export const seciSnapshotMeta = seciSnapshot.meta;
 
+/**
+ * Provenance for the tender *aggregates* — quarterly awards, technology mix and
+ * the developer league. `resolveTenderData` only swaps the live SECI snapshot
+ * into the `records` list, so `tenderData.meta` reads "live" while these
+ * aggregates are still mock. Visuals driven by the aggregates must badge with
+ * this, not `tenderData.meta`, or a live tender book mislabels mock charts.
+ */
+export const tenderAggregatesMeta = tenderMock.meta;
+
 /** Feeds awaiting a live ingestion parser — mock for now, clearly badged. */
 export const dcrData = dcrMock;
 export const tariffData = tariffMock;

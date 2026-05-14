@@ -15,7 +15,7 @@ import { SectionTitle } from "@/components/primitives/SectionTitle";
 import { Tag } from "@/components/primitives/Tag";
 import { DataTable } from "@/components/tables/DataTable";
 import { PlayerTable } from "@/components/tables/PlayerTable";
-import { tenderData } from "@/data/datasets";
+import { tenderAggregatesMeta, tenderData } from "@/data/datasets";
 import { fyOf } from "@/data/periods";
 import { CHART, TECH_COLORS, chartRows } from "@/lib/chartTheme";
 import { filterByPeriod, matches } from "@/lib/filterData";
@@ -171,7 +171,10 @@ export default function TendersPage() {
         eyebrow="Tender Intelligence"
         title="Tenders — Awards & Technology Mix"
         description="Quarterly awarded capacity, the shift in technology mix toward FDRE / hybrid / RTC / BESS, and a live tender book. SECI is the live-first source — when the ingestion run cannot reach it, the dashboard falls back to a mock tender book and badges it honestly."
-        datasets={[{ label: "Tenders (SECI live-first)", meta: tenderData.meta }]}
+        datasets={[
+          { label: "Tender book (SECI)", meta: tenderData.meta },
+          { label: "Award aggregates", meta: tenderAggregatesMeta },
+        ]}
       />
 
       <div className="flex flex-wrap items-center gap-3">
@@ -194,7 +197,7 @@ export default function TendersPage() {
           delta={pctChange(latestAward.awardedMW, prevAward.awardedMW)}
           deltaLabel="QoQ"
           tone="amber"
-          status="mock"
+          status={tenderAggregatesMeta.status}
           icon={Gavel}
         />
         <StatTile
@@ -202,7 +205,7 @@ export default function TendersPage() {
           value={formatCapacity(ttmAward)}
           caption="Rolling 12-month awarded capacity"
           tone="blue"
-          status="mock"
+          status={tenderAggregatesMeta.status}
           icon={Gauge}
         />
         <StatTile
@@ -210,7 +213,7 @@ export default function TendersPage() {
           value={leadingTech}
           caption={`${formatCapacity(lastMix[leadingTech])} awarded last quarter`}
           tone="violet"
-          status="mock"
+          status={tenderAggregatesMeta.status}
           icon={Layers}
         />
         <StatTile
@@ -236,7 +239,7 @@ export default function TendersPage() {
           <ChartCard
             title="Tenders awarded — quarterly"
             subtitle="Total awarded capacity per quarter, 5-year window"
-            meta={tenderData.meta}
+            meta={tenderAggregatesMeta}
             legend={[{ label: "Awarded capacity", color: CHART.amber }]}
           >
             <TrendChart
@@ -258,7 +261,7 @@ export default function TendersPage() {
           <ChartCard
             title="Tender mix by technology"
             subtitle="Solar · FDRE · wind · BESS · hybrid · RTC"
-            meta={tenderData.meta}
+            meta={tenderAggregatesMeta}
             legend={techSeries.map((s) => ({ label: s.label, color: s.color }))}
           >
             <MixChart
@@ -281,7 +284,7 @@ export default function TendersPage() {
         <ChartCard
           title="Awards by developer"
           subtitle={`${players.length} developers · cumulative awarded capacity, FY22–FY26`}
-          meta={tenderData.meta}
+          meta={tenderAggregatesMeta}
         >
           <PlayerTable
             rows={players}
