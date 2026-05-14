@@ -3,13 +3,17 @@ name: Ingest data snapshots
 # Refreshes the live data snapshots the dashboard reads:
 #   - src/data/live/seci-tenders.json
 #   - src/data/live/source-health.json
-# Runs on a daily schedule and on demand. scripts/ingest.mjs has zero npm
-# dependencies, so no install step is needed — this stays deliberately simple.
+# Runs on a daily schedule, on demand, and when ingestion code changes.
+# scripts/ingest.mjs has zero npm dependencies — no install step needed.
 
 on:
   schedule:
     - cron: "30 1 * * *" # 01:30 UTC daily (~07:00 IST)
   workflow_dispatch:
+  push:
+    paths:
+      - scripts/ingest.mjs
+      - .github/workflows/ingest-data.yml
 
 permissions:
   contents: write
