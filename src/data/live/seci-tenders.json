@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-14T12:30:20.937Z",
+    "lastChecked": "2026-05-14T18:32:31.508Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
@@ -88,7 +88,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-0",
+      "id": "seci-live-8",
       "title": "SECI000222 SECI-2025-TN000025 --> --> SECI/C&P/IPP/12/0013/25-26 RfS for Setting up of 1200 MW I",
       "agency": "SECI",
       "tech": "Wind",
@@ -98,7 +98,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-1",
+      "id": "seci-live-9",
       "title": "SECI000221 SECI-2025-TN000023 --> --> SECI/C&P/IPP/13/0012/25-26 RfS for assured Peak supply of ",
       "agency": "SECI",
       "tech": "FDRE",
@@ -108,7 +108,7 @@
       "period": "Q3 FY27"
     },
     {
-      "id": "seci-live-2",
+      "id": "seci-live-10",
       "title": "SECI000204 SECI-2025-TN000012 2025_SECI_802375_1 --> --> SECI/C&P/IPP/11/0006/25-26 RfS for Sett",
       "agency": "SECI",
       "tech": "Solar",
@@ -118,7 +118,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-11",
       "title": "SECI000202 SECI-2025-TN000011 2025_SECI_801872_1 --> --> SECI/C&P/IPP/11/0004/25-26 RfS for 2000",
       "agency": "SECI",
       "tech": "Solar",
@@ -128,7 +128,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-4",
+      "id": "seci-live-12",
       "title": "SECI000181 SECI-2024-TN000053 --> --> SECI/C&P/IPP/15/00018/24-25 REQUEST FOR SELECTION (RFS) DO",
       "agency": "SECI",
       "tech": "BESS",
@@ -138,7 +138,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-5",
+      "id": "seci-live-13",
       "title": "SECI000176 SECI-2024-TN000048 --> --> SECI/C&P/IPP/13/0019/24-25 RfS for 1200 MW RTC Power from ",
       "agency": "SECI",
       "tech": "RTC",
@@ -148,7 +148,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-6",
+      "id": "seci-live-14",
       "title": "SECI000171 SECI-2024-TN000043 --> --> SECI/C&P/IPP/11/0014/24-25 RfS for 1000 MW ISTS-Connected ",
       "agency": "SECI",
       "tech": "Solar",
@@ -158,7 +158,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-7",
+      "id": "seci-live-15",
       "title": "SECI000170 SECI-2024-TN000042 --> --> SECI/C&P/IPP/13/0013/24-25 RfS for assured Peak supply of ",
       "agency": "SECI",
       "tech": "FDRE",
@@ -168,7 +168,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-8",
+      "id": "seci-live-16",
       "title": "SECI000162 SECI-2024-TN000037 --> --> SECI/C&P/IPP/11/0011/24-25 RfS for Setting up of 2000 MW I",
       "agency": "SECI",
       "tech": "BESS",
@@ -178,7 +178,7 @@
       "period": "Q3 FY26"
     },
     {
-      "id": "seci-live-9",
+      "id": "seci-live-17",
       "title": "SECI000146 SECI-2024-TN000033 --> --> SECI/C&P/IPP/13/0006/24-25 RfS for Selection of Hybrid Pow",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -188,7 +188,7 @@
       "period": "Q1 FY26"
     },
     {
-      "id": "seci-live-10",
+      "id": "seci-live-18",
       "title": "SECI000140 SECI-2024-TN000022 --> --> SECI/C&P/IPP/12/0002/24-25 RfS for 500 MW ISTS-Connected W",
       "agency": "SECI",
       "tech": "Wind",
@@ -198,7 +198,7 @@
       "period": "Q4 FY25"
     },
     {
-      "id": "seci-live-11",
+      "id": "seci-live-19",
       "title": "SECI000139 SECI-2024-TN000021 --> --> SECI/C&P/IPP/11/0004/24-25 RfS for Setting up of 1200 MW I",
       "agency": "SECI",
       "tech": "Solar",
@@ -208,7 +208,7 @@
       "period": "Q1 FY26"
     },
     {
-      "id": "seci-live-12",
+      "id": "seci-live-20",
       "title": "SECI000132 SECI-2024-TN000014 --> --> SECI/C&P/IPP/11/0023/23-24 RfS for Setting up of 1200 MW I",
       "agency": "SECI",
       "tech": "BESS",
@@ -218,7 +218,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-13",
+      "id": "seci-live-21",
       "title": "SECI000123 SECI-2024-TN000009 --> --> SECI/C&P/IPP/13/0020/23-24 RfS for Selection of Hybrid Pow",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -228,7 +228,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-14",
+      "id": "seci-live-22",
       "title": "SECI000121 SECI-2024-TN000002 2024_SECI_742316_1 --> --> SECI/C&P/IPP/11/0017/23-24 RfS for Sett",
       "agency": "SECI",
       "tech": "Solar",
@@ -238,7 +238,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-15",
+      "id": "seci-live-23",
       "title": "SECI000119 SECI-2023-TN000031 --> --> SECI/C&P/IPP/11/0016/23-24 RfS for Selection of Solar Powe",
       "agency": "SECI",
       "tech": "Solar",
@@ -248,7 +248,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-16",
+      "id": "seci-live-24",
       "title": "SECI000117 SECI-2023-TN000026 2023_SECI_732041_1 --> --> SECI/C&P/MI/00/0017/2023-24 Empanelment",
       "agency": "SECI",
       "tech": "Solar",
@@ -258,7 +258,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-17",
+      "id": "seci-live-25",
       "title": "SECI000112 SECI-2022-TN000028 --> --> SECI/C&P/IPP/12/0009/22-23 RfS for Selection of Wind Power",
       "agency": "SECI",
       "tech": "Wind",
@@ -268,7 +268,7 @@
       "period": "Q2 FY24"
     },
     {
-      "id": "seci-live-18",
+      "id": "seci-live-26",
       "title": "SECI000108 SECI-2023-TN000025 --> --> SECI/C&P/IPP/13/0008/23-24 RfS for Selection of Hybrid Pow",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -278,7 +278,7 @@
       "period": "Q2 FY25"
     },
     {
-      "id": "seci-live-19",
+      "id": "seci-live-27",
       "title": "SECI000107 SECI-2023-TN000024 --> --> SECI/C&P/IPP/11/0007/23-24 RfS for Selection of Solar Powe",
       "agency": "SECI",
       "tech": "Solar",
@@ -288,7 +288,7 @@
       "period": "Q2 FY25"
     },
     {
-      "id": "seci-live-20",
+      "id": "seci-live-28",
       "title": "SECI000105 SECI-2023-TN000023 --> --> SECI/C&P/IPP/13/0006/23-24 RfS for 1260 MW Firm and Dispat",
       "agency": "SECI",
       "tech": "FDRE",
@@ -298,7 +298,7 @@
       "period": "Q1 FY25"
     },
     {
-      "id": "seci-live-21",
+      "id": "seci-live-29",
       "title": "SECI000087 SECI-2023-TN000008 --> --> SECI/C&P/IPP/11/0009/22-23 RfS for Selection of Solar Powe",
       "agency": "SECI",
       "tech": "Solar",
@@ -308,7 +308,7 @@
       "period": "Q2 FY24"
     },
     {
-      "id": "seci-live-22",
+      "id": "seci-live-30",
       "title": "SECI000081 SECI-2023-TN000003 --> --> SECI/C&P/IPP/12/0008/22-23 RfS for Selection of Wind Power",
       "agency": "SECI",
       "tech": "Wind",
@@ -318,7 +318,7 @@
       "period": "Q2 FY24"
     },
     {
-      "id": "seci-live-23",
+      "id": "seci-live-31",
       "title": "SECI000075 SECI-2022-TN000024 --> --> SECI/C&P/IPP/13/0007/22-23 RfS for 1200 MW ISTS-Connected ",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -328,7 +328,7 @@
       "period": "Q2 FY24"
     },
     {
-      "id": "seci-live-24",
+      "id": "seci-live-32",
       "title": "SECI000054 SECI-2022-TN000010 --> --> SECI/C&P/IPP/15/0001/22-23 Request for Selection (RfS) Doc",
       "agency": "SECI",
       "tech": "BESS",
@@ -338,7 +338,7 @@
       "period": "Q4 FY23"
     },
     {
-      "id": "seci-live-25",
+      "id": "seci-live-33",
       "title": "SECI000047 SECI-2022-TN000001 --> --> SECI/C&P/IPP/12/0006/21-22 RfS for Selection of Wind Power",
       "agency": "SECI",
       "tech": "Wind",
@@ -348,7 +348,7 @@
       "period": "Q1 FY23"
     },
     {
-      "id": "seci-live-26",
+      "id": "seci-live-34",
       "title": "SECI000043 SECI-2021-TN000012 --> --> SECI/C&P/IPP/13/0003/21-22 RfS for Selection of Hybrid Pow",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -358,7 +358,7 @@
       "period": "Q4 FY22"
     },
     {
-      "id": "seci-live-27",
+      "id": "seci-live-35",
       "title": "SECI000042 SECI-2021-TN000011 --> --> SECI/C&P/IPP/12/0002/21-22 RfS for Selection of Wind Power",
       "agency": "SECI",
       "tech": "Wind",
@@ -368,7 +368,7 @@
       "period": "Q4 FY22"
     },
     {
-      "id": "seci-live-28",
+      "id": "seci-live-36",
       "title": "SECI000036 SECI-2021-TN000008 2021_SECI_614378_1 --> --> SECI/C&P/SPD/ISTS-X/RfS/1200 MW/072021 ",
       "agency": "SECI",
       "tech": "Solar",
@@ -378,7 +378,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-29",
+      "id": "seci-live-37",
       "title": "SECI000033 SECI-2021-TN000007 2021_SECI_606036_1 --> --> SECI/C&P/WPD/1200MW/T11/RfS/052021 RfS ",
       "agency": "SECI",
       "tech": "Wind",
@@ -388,7 +388,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-30",
+      "id": "seci-live-38",
       "title": "SECI000032 SECI-2021-TN000006 2021_SECI_600995_1 --> --> SECI/C&P/HPD/T4/1200MW/RfS/042021 RfS f",
       "agency": "SECI",
       "tech": "Hybrid",
@@ -398,7 +398,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-31",
+      "id": "seci-live-39",
       "title": "SECI000030 SECI-2021-TN000004 --> --> SECI/C&P/SPD/RfS/RJ-IV/032021 RfS for Setting up of 1785 M",
       "agency": "SECI",
       "tech": "Solar",
@@ -408,7 +408,7 @@
       "period": "Q1 FY22"
     },
     {
-      "id": "seci-live-32",
+      "id": "seci-live-40",
       "title": "SECI000025 SECI-2020-TN000027 2020_SECI_578536_1 --> --> SECI/C&P/WPD/1200MW/T10/RfS/122020 RfS ",
       "agency": "SECI",
       "tech": "Wind",
@@ -418,7 +418,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-33",
+      "id": "seci-live-41",
       "title": "SECI000018 SECI-2020-TN000023 2020_SECI_546135_1 --> --> SECI/C&P/SPD/RfS/RJ-III/072020 RfS for ",
       "agency": "SECI",
       "tech": "Solar",
@@ -428,7 +428,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-34",
+      "id": "seci-live-42",
       "title": "SECI000013 SECI-2020-TN000004 2020_SECI_ 509894_1 --> --> SECI/C&P/SPD/RfS/A&N/4MW/012020 Reques",
       "agency": "SECI",
       "tech": "BESS",
@@ -438,7 +438,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-35",
+      "id": "seci-live-43",
       "title": "SECI000007 SECI-2020-TN000009 2020_SECI_527914_1 --> --> SECI/C&P/RPD/RTC-II/RfS/5000MW/032020 R",
       "agency": "SECI",
       "tech": "RTC",
@@ -448,7 +448,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-36",
+      "id": "seci-live-44",
       "title": "SECI000006 SECI-2020-TN000008 2020_SECI_529029_1 --> --> SECI/C&P/SPD/ISTS-IX/RfS/2000MW/032020 ",
       "agency": "SECI",
       "tech": "Solar",
@@ -458,7 +458,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-37",
+      "id": "seci-live-45",
       "title": "SECI000005 SECI-2020-TN000011 2020_SECI_529080_1 --> --> SECI/C&P/WPD/2000MW/T9/RfS/032020 RfS f",
       "agency": "SECI",
       "tech": "Wind",
@@ -468,7 +468,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-38",
+      "id": "seci-live-46",
       "title": "SECI000001 SECI-2020-TN000003 --> --> SECI/C&P/HPD/T3/1200MW/RfS/012020 RfS for 1200 MW ISTS-con",
       "agency": "SECI",
       "tech": "Hybrid",
