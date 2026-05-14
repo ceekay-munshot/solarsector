@@ -1,0 +1,46 @@
+name: Ingest data snapshots
+
+# Refreshes the live data snapshots the dashboard reads:
+#   - src/data/live/seci-tenders.json
+#   - src/data/live/source-health.json
+# Runs on a daily schedule and on demand. scripts/ingest.mjs has zero npm
+# dependencies, so no install step is needed — this stays deliberately simple.
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 01:30 UTC daily (~07:00 IST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest-data
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run ingestion
+        run: node scripts/ingest.mjs
+
+      - name: Commit updated snapshots
+        run: |
+          git config user.name "solarsector-ingest-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/live/seci-tenders.json src/data/live/source-health.json
+          if git diff --staged --quiet; then
+            echo "No snapshot changes to commit."
+          else
+            git commit -m "chore(data): refresh live data snapshots"
+            git push
+          fi

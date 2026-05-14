@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "status": "fallback",
+    "sourceName": "SECI Tenders (live)",
+    "sourceUrl": "https://www.seci.co.in/tenders",
+    "lastChecked": "2026-05-14T08:06:34.641Z",
+    "note": "Live SECI fetch unsuccessful — tenders page returned HTTP 403. Dashboard is showing the mock tender book."
+  },
+  "records": []
+}

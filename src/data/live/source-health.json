@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "status": "fallback",
+    "sourceName": "Source health probes",
+    "lastChecked": "2026-05-14T08:06:34.641Z",
+    "note": "0/7 tracked sources reachable on the last run."
+  },
+  "generatedAt": "2026-05-14T08:06:34.641Z",
+  "probes": [
+    {
+      "id": "seci-tenders",
+      "name": "SECI — Tenders",
+      "url": "https://www.seci.co.in/tenders",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 11,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "seci-results",
+      "name": "SECI — Tender Results",
+      "url": "https://www.seci.co.in/tenders/results",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 17,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "cerc-orders",
+      "name": "CERC — Recent Orders",
+      "url": "https://cercind.gov.in/recent_orders.html",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 319,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "cerc-rops",
+      "name": "CERC — Recent ROPs",
+      "url": "https://cercind.gov.in/recent_rops.html",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 319,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "npp-reports",
+      "name": "NPP — Published Reports",
+      "url": "https://npp.gov.in/publishedReports",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 1054,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "mnre-almm",
+      "name": "MNRE — ALMM",
+      "url": "https://mnre.gov.in/en/approved-list-of-models-and-manufacturers-almm/",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 865,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    },
+    {
+      "id": "dcr-portal",
+      "name": "DCR Verification Portal (NISE)",
+      "url": "https://solardcrportal.nise.res.in/",
+      "status": "fallback",
+      "httpStatus": 403,
+      "latencyMs": 595,
+      "ok": false,
+      "error": "HTTP 403",
+      "checkedAt": "2026-05-14T08:06:34.641Z"
+    }
+  ]
+}

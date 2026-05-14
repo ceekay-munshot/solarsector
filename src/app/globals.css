@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------------------------- */
+/* Solar Command Center — design tokens                                   */
+/* --------------------------------------------------------------------- */
+@theme {
+  /* Base surfaces — deep navy / graphite */
+  --color-base: #060912;
+  --color-surface: #0b1020;
+  --color-surface-2: #11182b;
+  --color-panel: #141c30;
+  --color-panel-2: #1a2338;
+
+  /* Text */
+  --color-ink: #eef1f8;
+  --color-muted: #99a3c2;
+  --color-faint: #647095;
+
+  /* Hairlines */
+  --color-line: #222c47;
+  --color-line-soft: #18203a;
+
+  /* Accents */
+  --color-amber: #f5a524;
+  --color-amber-bright: #ffc857;
+  --color-blue: #38bdf8;
+  --color-blue-deep: #3b82f6;
+  --color-emerald: #34d399;
+  --color-violet: #a78bfa;
+  --color-orange: #fb923c;
+  --color-red: #f87171;
+
+  /* Layout */
+  --radius-card: 16px;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+}
+
+/* --------------------------------------------------------------------- */
+/* Base                                                                   */
+/* --------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Ambient command-center glow behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        920px 520px at 10% -6%,
+        rgba(245, 165, 36, 0.11),
+        transparent 60%
+      ),
+      radial-gradient(
+        820px 520px at 96% -2%,
+        rgba(56, 189, 248, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        760px 620px at 72% 108%,
+        rgba(139, 92, 246, 0.09),
+        transparent 60%
+      );
+  }
+
+  ::selection {
+    background: rgba(245, 165, 36, 0.32);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232c47;
+    border-radius: 9px;
+    border: 2px solid var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #313d63;
+  }
+}
+
+/* --------------------------------------------------------------------- */
+/* Components                                                             */
+/* --------------------------------------------------------------------- */
+@layer components {
+  /* Premium glass card surface */
+  .glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.014)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .glass-hover {
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+  .glass-hover:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.022)
+    );
+    box-shadow: 0 18px 48px -28px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Tabular numerals for every data figure */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.012em;
+  }
+
+  /* Faint engineering grid texture for hero panels */
+  .grid-texture {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  /* Section eyebrow label */
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+}
+
+/* --------------------------------------------------------------------- */
+/* Utilities                                                              */
+/* --------------------------------------------------------------------- */
+@layer utilities {
+  .animate-pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 currentColor;
+    }
+    50% {
+      opacity: 0.65;
+      box-shadow: 0 0 0 4px transparent;
+    }
+  }
+
+  .fade-up {
+    animation: fade-up 0.4s ease both;
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
