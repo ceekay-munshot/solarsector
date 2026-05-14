@@ -1,88 +1,81 @@
 {
   "meta": {
-    "status": "fallback",
+    "status": "live",
     "sourceName": "Source health probes",
-    "lastChecked": "2026-05-14T08:06:34.641Z",
-    "note": "0/7 tracked sources reachable on the last run."
+    "lastChecked": "2026-05-14T12:06:55.814Z",
+    "note": "6/7 tracked sources reachable on the last run."
   },
-  "generatedAt": "2026-05-14T08:06:34.641Z",
+  "generatedAt": "2026-05-14T12:06:55.814Z",
   "probes": [
     {
       "id": "seci-tenders",
       "name": "SECI — Tenders",
       "url": "https://www.seci.co.in/tenders",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 11,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 533,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "seci-results",
       "name": "SECI — Tender Results",
       "url": "https://www.seci.co.in/tenders/results",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 17,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 1670,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "cerc-orders",
       "name": "CERC — Recent Orders",
       "url": "https://cercind.gov.in/recent_orders.html",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 319,
+      "status": "probe_failed",
+      "latencyMs": 1005,
       "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "error": "fetch failed",
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "cerc-rops",
       "name": "CERC — Recent ROPs",
       "url": "https://cercind.gov.in/recent_rops.html",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 319,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 4579,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "npp-reports",
       "name": "NPP — Published Reports",
       "url": "https://npp.gov.in/publishedReports",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 1054,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 2522,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "mnre-almm",
       "name": "MNRE — ALMM",
       "url": "https://mnre.gov.in/en/approved-list-of-models-and-manufacturers-almm/",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 865,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 2479,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     },
     {
       "id": "dcr-portal",
       "name": "DCR Verification Portal (NISE)",
       "url": "https://solardcrportal.nise.res.in/",
-      "status": "fallback",
-      "httpStatus": 403,
-      "latencyMs": 595,
-      "ok": false,
-      "error": "HTTP 403",
-      "checkedAt": "2026-05-14T08:06:34.641Z"
+      "status": "live",
+      "httpStatus": 200,
+      "latencyMs": 2042,
+      "ok": true,
+      "checkedAt": "2026-05-14T12:06:55.814Z"
     }
   ]
 }
