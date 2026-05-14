@@ -41,17 +41,22 @@ attaches the correct badge.
 
 ### Current run status
 
-As of the latest ingestion run, **all seven tracked sources return HTTP 403 to
-scripted requests** (they sit behind bot/WAF protection or filter datacenter
-egress). The dashboard therefore shows:
+As of the latest ingestion run (2026-05-14), **6 of 7 tracked sources are
+reachable** — only CERC Recent ROPs failed its health probe. The dashboard
+therefore shows:
 
-- **Tenders** → `Live failed · Mock fallback` (SECI was attempted, blocked).
-- **Everything else** → `Mock` (`Ingestion pending` for feeds not yet wired).
-- **Sources page** → every probe shows its real HTTP status and latency.
+- **Tenders** → `Live` for the tender book: SECI was fetched and parsed on the
+  last run. The quarterly-award, technology-mix and developer-league aggregates
+  stay `Mock` — no historical-awards parser exists yet, so they are badged from
+  `tenderAggregatesMeta` and never inherit the live tender-book badge.
+- **Everything else** → `Mock` — ingestion parsers for these feeds are not
+  built yet.
+- **Sources page** → every probe shows its real HTTP status and latency;
+  6/7 reachable, CERC Recent ROPs `Probe failed` on the last run.
 
-This is the system behaving exactly as designed — when the GitHub Action runs
-from infrastructure that *can* reach SECI, the Tenders tab flips to `Live`
-automatically with no code change.
+This is the system behaving exactly as designed — the Tenders tab flips between
+`Live` and `Live failed · Mock fallback` automatically with each ingestion run,
+with no code change.
 
 ---
 

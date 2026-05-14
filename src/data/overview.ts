@@ -13,6 +13,7 @@ import {
   demandData,
   ippData,
   tariffData,
+  tenderAggregatesMeta,
   tenderData,
 } from "@/data/datasets";
 import { LATEST_FY, LATEST_PERIOD } from "@/data/periods";
@@ -88,7 +89,7 @@ export const overviewKpis: KpiStat[] = [
     trend: tenders.quarterlyAwards.slice(-8).map((q) => q.awardedMW),
     tone: "blue",
     caption: `${LATEST_PERIOD} · all technologies`,
-    status: "mock",
+    status: tenderAggregatesMeta.status,
   },
   {
     id: "tender-book",

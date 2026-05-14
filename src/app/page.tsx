@@ -18,6 +18,7 @@ import {
   demandData,
   ippData,
   tariffData,
+  tenderAggregatesMeta,
   tenderData,
 } from "@/data/datasets";
 import { overviewInsights, overviewKpis } from "@/data/overview";
@@ -70,7 +71,8 @@ export default function OverviewPage() {
         title="India Solar & Power — Command Center"
         description="A boardroom view of India's solar and power sector — DCR manufacturing, tenders, tariffs, capacity, demand and IPP pipelines. A mixed-data prototype: live where sources are reachable, clearly-badged mock where ingestion is still being built."
         datasets={[
-          { label: "Tenders", meta: tenderData.meta },
+          { label: "Tender book", meta: tenderData.meta },
+          { label: "Tender aggregates", meta: tenderAggregatesMeta },
           { label: "DCR", meta: dcrData.meta },
           { label: "Tariffs", meta: tariffData.meta },
           { label: "Capacity", meta: capacityData.meta },
@@ -138,7 +140,7 @@ export default function OverviewPage() {
           <ChartCard
             title="Tenders awarded — quarterly"
             subtitle="All technologies, capacity awarded per quarter"
-            meta={tenderData.meta}
+            meta={tenderAggregatesMeta}
             legend={[{ label: "Awarded capacity", color: CHART.amber }]}
           >
             <TrendChart
@@ -165,7 +167,7 @@ export default function OverviewPage() {
           <ChartCard
             title="Tender mix by technology"
             subtitle="Quarterly awarded capacity — solar, FDRE, wind, BESS, hybrid, RTC"
-            meta={tenderData.meta}
+            meta={tenderAggregatesMeta}
             legend={techSeries.map((s) => ({ label: s.label, color: s.color }))}
           >
             <MixChart
