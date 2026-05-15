@@ -49,14 +49,14 @@ therefore shows:
   last run. The quarterly-award, technology-mix and developer-league aggregates
   stay `Mock` — no historical-awards parser exists yet, so they are badged from
   `tenderAggregatesMeta` and never inherit the live tender-book badge.
-- **Capacity** → `Live` for **both the headline KPIs and the cumulative
-  time-series chart**. The ingestion Action auto-fetches `capacity1-YYYY-MM.xls`
-  for every month from FY22 onward and parses it via the `xlsx` library; the
-  resolver in `lib/dataStatus.ts` picks each quarter-end live reading and
-  splices it into the historical series. Per-quarter `commissioning` (broken
-  down by source) stays `Mock` and is badged from `capacityCommissioningMeta`
-  — extracting per-source columns from the CEA report is the next parser
-  change.
+- **Capacity** → fully `Live` for the five conventional sources (Solar /
+  Wind / Hydro / Thermal / Nuclear). The ingestion Action auto-fetches
+  `capacity1-YYYY-MM.xls` for every month from Mar 2021 onward; the parser
+  pulls both the ALL INDIA totals and the per-source breakdown (main table
+  + RES breakup), and the resolver derives per-quarter `commissioning` by
+  differencing consecutive quarter-end stocks. **BESS** is not in CEA's
+  installed-capacity report, so it is omitted from the per-source visuals
+  (a dedicated BESS source — MNRE / NLDC — is roadmap work).
 - **Everything else** → `Mock` — ingestion parsers for these feeds are not
   built yet.
 - **Sources page** → every probe shows its real HTTP status and latency;

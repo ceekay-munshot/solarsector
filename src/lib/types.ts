@@ -276,6 +276,22 @@ export interface NppInstalledCapacityPoint {
    * separate `Hydro` column in the CEA report).
    */
   renewableMW: number;
+  /**
+   * Cumulative installed capacity broken down by power source, MW. Optional
+   * because older snapshots written before the per-source parser was added
+   * don't carry it; the resolver gracefully falls back to mock commissioning
+   * when this is absent. CEA's installed-capacity report does NOT break out
+   * BESS — battery storage stays mock until a separate source is wired up.
+   */
+  bySource?: {
+    Solar: number;
+    Wind: number;
+    /** Large hydro + small hydro. */
+    Hydro: number;
+    /** Coal + lignite + gas + diesel. */
+    Thermal: number;
+    Nuclear: number;
+  };
 }
 
 /** Shape of src/data/live/npp-installed-capacity.json. */
