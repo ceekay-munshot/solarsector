@@ -50,10 +50,13 @@ therefore shows:
   stay `Mock` — no historical-awards parser exists yet, so they are badged from
   `tenderAggregatesMeta` and never inherit the live tender-book badge.
 - **Capacity** → `Live` for the latest installed-capacity reading (CEA "All
-  India Installed Capacity" report via NPP — hand-curated from the Mar-2026
-  snapshot for now; auto-fetch + historical backfill are the next pieces).
-  The cumulative time-series chart and per-quarter `commissioning` stay
-  `Mock` until backfill lands.
+  India Installed Capacity" report via NPP). The ingestion Action now
+  auto-fetches `capacity1-YYYY-MM.xls` for every month from FY22 onward and
+  parses it via the `xlsx` library — the committed snapshot grows by one
+  point per month with each scheduled run. The cumulative time-series chart
+  still reads the mock historical series for now; wiring the live points
+  into the chart (and deriving per-quarter `commissioning` by differencing)
+  is a small follow-up.
 - **Everything else** → `Mock` — ingestion parsers for these feeds are not
   built yet.
 - **Sources page** → every probe shows its real HTTP status and latency;

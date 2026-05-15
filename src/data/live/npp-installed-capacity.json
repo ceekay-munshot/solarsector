@@ -3,10 +3,482 @@
     "status": "live",
     "sourceName": "CEA Installed Capacity (NPP)",
     "sourceUrl": "https://npp.gov.in/publishedReports",
-    "lastChecked": "2026-05-15T00:00:00.000Z",
-    "note": "Hand-curated from the CEA monthly \"All India Installed Capacity (in MW) of Power Stations\" report, as on 31/03/2026. Auto-fetch + historical backfill are the next pieces of work."
+    "lastChecked": "2026-05-15T11:05:29.385Z",
+    "note": "Parsed 60 of 62 monthly installed-capacity readings from NPP/CEA."
   },
   "points": [
+    {
+      "asOf": "2021-04-30",
+      "period": "Q1 FY22",
+      "fy": "FY22",
+      "quarter": "Q1",
+      "totalMW": 382730.02,
+      "renewableMW": 95012.59
+    },
+    {
+      "asOf": "2021-05-31",
+      "period": "Q1 FY22",
+      "fy": "FY22",
+      "quarter": "Q1",
+      "totalMW": 383373.68,
+      "renewableMW": 95656.25
+    },
+    {
+      "asOf": "2021-06-30",
+      "period": "Q1 FY22",
+      "fy": "FY22",
+      "quarter": "Q1",
+      "totalMW": 384115.94,
+      "renewableMW": 96955.51
+    },
+    {
+      "asOf": "2021-07-31",
+      "period": "Q2 FY22",
+      "fy": "FY22",
+      "quarter": "Q2",
+      "totalMW": 386888.15,
+      "renewableMW": 98882.72
+    },
+    {
+      "asOf": "2021-08-31",
+      "period": "Q2 FY22",
+      "fy": "FY22",
+      "quarter": "Q2",
+      "totalMW": 388133.75,
+      "renewableMW": 100683.32
+    },
+    {
+      "asOf": "2021-09-30",
+      "period": "Q2 FY22",
+      "fy": "FY22",
+      "quarter": "Q2",
+      "totalMW": 388848.78,
+      "renewableMW": 101532.85
+    },
+    {
+      "asOf": "2021-10-31",
+      "period": "Q3 FY22",
+      "fy": "FY22",
+      "quarter": "Q3",
+      "totalMW": 390791.18,
+      "renewableMW": 103055.25
+    },
+    {
+      "asOf": "2021-11-30",
+      "period": "Q3 FY22",
+      "fy": "FY22",
+      "quarter": "Q3",
+      "totalMW": 392017.24,
+      "renewableMW": 104031.31
+    },
+    {
+      "asOf": "2021-12-31",
+      "period": "Q3 FY22",
+      "fy": "FY22",
+      "quarter": "Q3",
+      "totalMW": 393389.46,
+      "renewableMW": 104878.53
+    },
+    {
+      "asOf": "2022-01-31",
+      "period": "Q4 FY22",
+      "fy": "FY22",
+      "quarter": "Q4",
+      "totalMW": 395075.06,
+      "renewableMW": 105854.13
+    },
+    {
+      "asOf": "2022-02-28",
+      "period": "Q4 FY22",
+      "fy": "FY22",
+      "quarter": "Q4",
+      "totalMW": 395607.86,
+      "renewableMW": 106374.63
+    },
+    {
+      "asOf": "2022-03-31",
+      "period": "Q4 FY22",
+      "fy": "FY22",
+      "quarter": "Q4",
+      "totalMW": 399496.61,
+      "renewableMW": 109885.38
+    },
+    {
+      "asOf": "2022-04-30",
+      "period": "Q1 FY23",
+      "fy": "FY23",
+      "quarter": "Q1",
+      "totalMW": 401010.23,
+      "renewableMW": 111399
+    },
+    {
+      "asOf": "2022-05-31",
+      "period": "Q1 FY23",
+      "fy": "FY23",
+      "quarter": "Q1",
+      "totalMW": 402817.4,
+      "renewableMW": 113226.47
+    },
+    {
+      "asOf": "2022-06-30",
+      "period": "Q1 FY23",
+      "fy": "FY23",
+      "quarter": "Q1",
+      "totalMW": 403759.59,
+      "renewableMW": 114064.01
+    },
+    {
+      "asOf": "2022-07-31",
+      "period": "Q2 FY23",
+      "fy": "FY23",
+      "quarter": "Q2",
+      "totalMW": 404132.95,
+      "renewableMW": 114437.37
+    },
+    {
+      "asOf": "2022-08-31",
+      "period": "Q2 FY23",
+      "fy": "FY23",
+      "quarter": "Q2",
+      "totalMW": 405773.22,
+      "renewableMW": 116077.64
+    },
+    {
+      "asOf": "2022-09-30",
+      "period": "Q2 FY23",
+      "fy": "FY23",
+      "quarter": "Q2",
+      "totalMW": 407796.57,
+      "renewableMW": 118080.32
+    },
+    {
+      "asOf": "2022-10-31",
+      "period": "Q3 FY23",
+      "fy": "FY23",
+      "quarter": "Q3",
+      "totalMW": 408714.84,
+      "renewableMW": 119092.59
+    },
+    {
+      "asOf": "2022-11-30",
+      "period": "Q3 FY23",
+      "fy": "FY23",
+      "quarter": "Q3",
+      "totalMW": 409161.21,
+      "renewableMW": 119512.13
+    },
+    {
+      "asOf": "2022-12-31",
+      "period": "Q3 FY23",
+      "fy": "FY23",
+      "quarter": "Q3",
+      "totalMW": 410339.23,
+      "renewableMW": 120900.15
+    },
+    {
+      "asOf": "2023-01-31",
+      "period": "Q4 FY23",
+      "fy": "FY23",
+      "quarter": "Q4",
+      "totalMW": 411648.6,
+      "renewableMW": 121549.52
+    },
+    {
+      "asOf": "2023-02-28",
+      "period": "Q4 FY23",
+      "fy": "FY23",
+      "quarter": "Q4",
+      "totalMW": 412212.14,
+      "renewableMW": 122113.06
+    },
+    {
+      "asOf": "2023-03-31",
+      "period": "Q4 FY23",
+      "fy": "FY23",
+      "quarter": "Q4",
+      "totalMW": 416058.89,
+      "renewableMW": 125159.81
+    },
+    {
+      "asOf": "2023-04-30",
+      "period": "Q1 FY24",
+      "fy": "FY24",
+      "quarter": "Q1",
+      "totalMW": 416591.38,
+      "renewableMW": 125692.3
+    },
+    {
+      "asOf": "2023-05-31",
+      "period": "Q1 FY24",
+      "fy": "FY24",
+      "quarter": "Q1",
+      "totalMW": 417668.12,
+      "renewableMW": 126769.04
+    },
+    {
+      "asOf": "2023-06-30",
+      "period": "Q1 FY24",
+      "fy": "FY24",
+      "quarter": "Q1",
+      "totalMW": 421901.63,
+      "renewableMW": 129642.55
+    },
+    {
+      "asOf": "2023-07-31",
+      "period": "Q2 FY24",
+      "fy": "FY24",
+      "quarter": "Q2",
+      "totalMW": 423359.31,
+      "renewableMW": 130886.23
+    },
+    {
+      "asOf": "2023-08-31",
+      "period": "Q2 FY24",
+      "fy": "FY24",
+      "quarter": "Q2",
+      "totalMW": 424287.7,
+      "renewableMW": 131514.62
+    },
+    {
+      "asOf": "2023-09-30",
+      "period": "Q2 FY24",
+      "fy": "FY24",
+      "quarter": "Q2",
+      "totalMW": 425406.47,
+      "renewableMW": 131783.39
+    },
+    {
+      "asOf": "2023-10-31",
+      "period": "Q3 FY24",
+      "fy": "FY24",
+      "quarter": "Q3",
+      "totalMW": 425535.52,
+      "renewableMW": 132132.44
+    },
+    {
+      "asOf": "2023-11-30",
+      "period": "Q3 FY24",
+      "fy": "FY24",
+      "quarter": "Q3",
+      "totalMW": 426131.6,
+      "renewableMW": 132698.52
+    },
+    {
+      "asOf": "2023-12-31",
+      "period": "Q3 FY24",
+      "fy": "FY24",
+      "quarter": "Q3",
+      "totalMW": 428299.26,
+      "renewableMW": 133886.18
+    },
+    {
+      "asOf": "2024-01-31",
+      "period": "Q4 FY24",
+      "fy": "FY24",
+      "quarter": "Q4",
+      "totalMW": 429961.45,
+      "renewableMW": 135116.36
+    },
+    {
+      "asOf": "2024-02-29",
+      "period": "Q4 FY24",
+      "fy": "FY24",
+      "quarter": "Q4",
+      "totalMW": 434195.18,
+      "renewableMW": 136570.09
+    },
+    {
+      "asOf": "2024-03-31",
+      "period": "Q4 FY24",
+      "fy": "FY24",
+      "quarter": "Q4",
+      "totalMW": 441969.6,
+      "renewableMW": 143644.51
+    },
+    {
+      "asOf": "2024-04-30",
+      "period": "Q1 FY25",
+      "fy": "FY25",
+      "quarter": "Q1",
+      "totalMW": 442856.64,
+      "renewableMW": 144751.55
+    },
+    {
+      "asOf": "2024-05-31",
+      "period": "Q1 FY25",
+      "fy": "FY25",
+      "quarter": "Q1",
+      "totalMW": 444756.88,
+      "renewableMW": 146651.79
+    },
+    {
+      "asOf": "2024-06-30",
+      "period": "Q1 FY25",
+      "fy": "FY25",
+      "quarter": "Q1",
+      "totalMW": 446189.73,
+      "renewableMW": 148084.64
+    },
+    {
+      "asOf": "2024-07-31",
+      "period": "Q2 FY25",
+      "fy": "FY25",
+      "quarter": "Q2",
+      "totalMW": 448381.45,
+      "renewableMW": 150276.36
+    },
+    {
+      "asOf": "2024-08-31",
+      "period": "Q2 FY25",
+      "fy": "FY25",
+      "quarter": "Q2",
+      "totalMW": 450759.57,
+      "renewableMW": 152654.48
+    },
+    {
+      "asOf": "2024-09-30",
+      "period": "Q2 FY25",
+      "fy": "FY25",
+      "quarter": "Q2",
+      "totalMW": 452694.83,
+      "renewableMW": 154529.74
+    },
+    {
+      "asOf": "2024-10-31",
+      "period": "Q3 FY25",
+      "fy": "FY25",
+      "quarter": "Q3",
+      "totalMW": 454452.19,
+      "renewableMW": 156247.1
+    },
+    {
+      "asOf": "2024-11-30",
+      "period": "Q3 FY25",
+      "fy": "FY25",
+      "quarter": "Q3",
+      "totalMW": 456757.49,
+      "renewableMW": 158552.4
+    },
+    {
+      "asOf": "2024-12-31",
+      "period": "Q3 FY25",
+      "fy": "FY25",
+      "quarter": "Q3",
+      "totalMW": 462065.16,
+      "renewableMW": 162476.57
+    },
+    {
+      "asOf": "2025-01-31",
+      "period": "Q4 FY25",
+      "fy": "FY25",
+      "quarter": "Q4",
+      "totalMW": 466250.79,
+      "renewableMW": 165202.2
+    },
+    {
+      "asOf": "2025-02-28",
+      "period": "Q4 FY25",
+      "fy": "FY25",
+      "quarter": "Q4",
+      "totalMW": 470448.16,
+      "renewableMW": 167709.52
+    },
+    {
+      "asOf": "2025-03-31",
+      "period": "Q4 FY25",
+      "fy": "FY25",
+      "quarter": "Q4",
+      "totalMW": 467885.96,
+      "renewableMW": 172368.17
+    },
+    {
+      "asOf": "2025-04-30",
+      "period": "Q1 FY26",
+      "fy": "FY26",
+      "quarter": "Q1",
+      "totalMW": 472468.01,
+      "renewableMW": 175700.22
+    },
+    {
+      "asOf": "2025-05-31",
+      "period": "Q1 FY26",
+      "fy": "FY26",
+      "quarter": "Q1",
+      "totalMW": 475590.38,
+      "renewableMW": 178822.59
+    },
+    {
+      "asOf": "2025-06-30",
+      "period": "Q1 FY26",
+      "fy": "FY26",
+      "quarter": "Q1",
+      "totalMW": 484818.82,
+      "renewableMW": 184621.03
+    },
+    {
+      "asOf": "2025-07-31",
+      "period": "Q2 FY26",
+      "fy": "FY26",
+      "quarter": "Q2",
+      "totalMW": 490060.69,
+      "renewableMW": 187862.9
+    },
+    {
+      "asOf": "2025-08-31",
+      "period": "Q2 FY26",
+      "fy": "FY26",
+      "quarter": "Q2",
+      "totalMW": 495545.38,
+      "renewableMW": 192517.59
+    },
+    {
+      "asOf": "2025-09-30",
+      "period": "Q2 FY26",
+      "fy": "FY26",
+      "quarter": "Q2",
+      "totalMW": 500889.22,
+      "renewableMW": 197201.43
+    },
+    {
+      "asOf": "2025-10-31",
+      "period": "Q3 FY26",
+      "fy": "FY26",
+      "quarter": "Q3",
+      "totalMW": 505023.07,
+      "renewableMW": 200295.28
+    },
+    {
+      "asOf": "2025-11-30",
+      "period": "Q3 FY26",
+      "fy": "FY26",
+      "quarter": "Q3",
+      "totalMW": 509743.1,
+      "renewableMW": 203606.81
+    },
+    {
+      "asOf": "2025-12-31",
+      "period": "Q3 FY26",
+      "fy": "FY26",
+      "quarter": "Q3",
+      "totalMW": 513729.7,
+      "renewableMW": 207093.41
+    },
+    {
+      "asOf": "2026-01-31",
+      "period": "Q4 FY26",
+      "fy": "FY26",
+      "quarter": "Q4",
+      "totalMW": 520510.96,
+      "renewableMW": 212024.67
+    },
+    {
+      "asOf": "2026-02-28",
+      "period": "Q4 FY26",
+      "fy": "FY26",
+      "quarter": "Q4",
+      "totalMW": 524009.47,
+      "renewableMW": 215523.18
+    },
     {
       "asOf": "2026-03-31",
       "period": "Q4 FY26",
