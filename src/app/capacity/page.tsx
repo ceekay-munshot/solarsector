@@ -11,14 +11,14 @@ import { useFilters } from "@/components/filters/FilterContext";
 import { GlobalFilters } from "@/components/filters/GlobalFilters";
 import { PageHeader } from "@/components/primitives/PageHeader";
 import { SectionTitle } from "@/components/primitives/SectionTitle";
-import { capacityData } from "@/data/datasets";
+import { capacityData, capacityLatest } from "@/data/datasets";
 import { LATEST_PERIOD } from "@/data/periods";
 import { sourceRegistry } from "@/data/sources";
 import { SOURCE_COLORS, chartRows } from "@/lib/chartTheme";
 import { filterByPeriod } from "@/lib/filterData";
 import { formatGW, formatMW, formatPct } from "@/lib/format";
 import { pctChange } from "@/lib/seededRandom";
-import type { PowerSource } from "@/lib/types";
+import type { DataStatus, PowerSource } from "@/lib/types";
 
 const capacity = capacityData.value;
 const sources: PowerSource[] = [
@@ -49,8 +49,27 @@ export default function CapacityPage() {
   const prevComm = capacity.commissioning[capacity.commissioning.length - 2];
   const latestCumulative = capacity.cumulative[capacity.cumulative.length - 1];
   const prevCumulative = capacity.cumulative[capacity.cumulative.length - 2];
-  const reShare =
-    (latestCumulative.renewableGW / latestCumulative.totalGW) * 100;
+
+  // CEA installed-capacity is "stock" data — one snapshot gives the latest
+  // cumulative reading, no per-quarter "flow." We splice the live reading
+  // onto the headline KPIs; the time-series chart stays on mock history
+  // until backfill lands, and `commissioning` stays mock either way.
+  const liveLatest =
+    capacityLatest.meta.status === "live" && capacityLatest.points.length > 0
+      ? capacityLatest.points[capacityLatest.points.length - 1]
+      : null;
+  const headlineStatus: DataStatus = liveLatest
+    ? capacityLatest.meta.status
+    : "mock";
+  const headlineTotalGW = liveLatest
+    ? liveLatest.totalMW / 1000
+    : latestCumulative.totalGW;
+  const headlineRenewableGW = liveLatest
+    ? liveLatest.renewableMW / 1000
+    : latestCumulative.renewableGW;
+  const headlinePeriod = liveLatest?.period ?? LATEST_PERIOD;
+
+  const reShare = (headlineRenewableGW / headlineTotalGW) * 100;
   const prevReShare =
     (prevCumulative.renewableGW / prevCumulative.totalGW) * 100;
 
@@ -70,8 +89,11 @@ export default function CapacityPage() {
       <PageHeader
         eyebrow="Generation Build-out"
         title="Capacity — Commissioning by Source"
-        description="Quarterly capacity commissioning across solar, wind, hydro, thermal, nuclear and BESS, plus the cumulative installed base. Synthetic 5-year series until a live NPP / CEA monthly-report parser is built — the NPP source-health probe is shown below."
-        datasets={[{ label: "Capacity commissioning", meta: capacityData.meta }]}
+        description="Quarterly capacity commissioning across solar, wind, hydro, thermal, nuclear and BESS, plus the cumulative installed base. The latest installed-capacity reading comes live from CEA monthly reports (via NPP); the historical series and per-quarter commissioning stay mock until backfill lands."
+        datasets={[
+          { label: "Latest installed capacity", meta: capacityLatest.meta },
+          { label: "Capacity history", meta: capacityData.meta },
+        ]}
       />
 
       <div className="flex flex-wrap items-center gap-3">
@@ -95,35 +117,43 @@ export default function CapacityPage() {
         />
         <StatTile
           label="Total installed base"
-          value={formatGW(latestCumulative.totalGW, 0)}
-          caption={`${LATEST_PERIOD} · cumulative`}
-          delta={pctChange(latestCumulative.totalGW, prevCumulative.totalGW)}
+          value={formatGW(headlineTotalGW, 0)}
+          caption={`${headlinePeriod} · cumulative`}
+          delta={
+            liveLatest
+              ? undefined
+              : pctChange(latestCumulative.totalGW, prevCumulative.totalGW)
+          }
           deltaLabel="QoQ"
           tone="blue"
-          status="mock"
+          status={headlineStatus}
           icon={Layers}
         />
         <StatTile
           label="RE installed base"
-          value={formatGW(latestCumulative.renewableGW, 0)}
-          caption={`${LATEST_PERIOD} · cumulative`}
-          delta={pctChange(
-            latestCumulative.renewableGW,
-            prevCumulative.renewableGW,
-          )}
+          value={formatGW(headlineRenewableGW, 0)}
+          caption={`${headlinePeriod} · cumulative`}
+          delta={
+            liveLatest
+              ? undefined
+              : pctChange(
+                  latestCumulative.renewableGW,
+                  prevCumulative.renewableGW,
+                )
+          }
           deltaLabel="QoQ"
           tone="emerald"
-          status="mock"
+          status={headlineStatus}
           icon={Sun}
         />
         <StatTile
           label="RE share of total"
           value={formatPct(reShare)}
-          caption={`${LATEST_PERIOD} · renewable mix`}
-          delta={pctChange(reShare, prevReShare)}
+          caption={`${headlinePeriod} · renewable mix`}
+          delta={liveLatest ? undefined : pctChange(reShare, prevReShare)}
           deltaLabel="QoQ"
           tone="violet"
-          status="mock"
+          status={headlineStatus}
           icon={Activity}
         />
       </section>
@@ -211,7 +241,7 @@ export default function CapacityPage() {
           <SectionTitle
             eyebrow="Source health"
             title="Live capacity source — NPP"
-            description="When this probe is reachable, NPP published reports become the live feed for installed capacity by source."
+            description="NPP published reports power the live installed-capacity readings — probe health and last-checked time below."
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <SourceHealthCard entry={nppSource} />

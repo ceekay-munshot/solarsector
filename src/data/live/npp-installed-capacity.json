@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "status": "live",
+    "sourceName": "CEA Installed Capacity (NPP)",
+    "sourceUrl": "https://npp.gov.in/publishedReports",
+    "lastChecked": "2026-05-15T00:00:00.000Z",
+    "note": "Hand-curated from the CEA monthly \"All India Installed Capacity (in MW) of Power Stations\" report, as on 31/03/2026. Auto-fetch + historical backfill are the next pieces of work."
+  },
+  "points": [
+    {
+      "asOf": "2026-03-31",
+      "period": "Q4 FY26",
+      "fy": "FY26",
+      "quarter": "Q4",
+      "totalMW": 532739.72,
+      "renewableMW": 223273.43
+    }
+  ]
+}

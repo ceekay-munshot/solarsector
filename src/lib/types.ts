@@ -255,6 +255,36 @@ export interface CapacityData {
   cumulative: CapacityCumulativePoint[];
 }
 
+/**
+ * NPP / CEA monthly "Installed Capacity (in MW) of Power Stations" reading.
+ * Each report is an "as on" snapshot — cumulative installed base, not a flow.
+ * Multiple readings let us reconstruct the historical series (and derive
+ * per-quarter commissioning by differencing).
+ */
+export interface NppInstalledCapacityPoint {
+  /** ISO date — the "as on DD/MM/YYYY" date from the CEA report. */
+  asOf: string;
+  /** Fiscal-year period this reading maps to, e.g. "Q4 FY26". */
+  period: string;
+  fy: string;
+  quarter: Quarter;
+  /** Total installed capacity across all sources, MW. */
+  totalMW: number;
+  /**
+   * Renewable Energy Sources (RES), MW. CEA definition — solar + wind +
+   * small hydro + bio + waste-to-energy. Excludes large hydro (which is the
+   * separate `Hydro` column in the CEA report).
+   */
+  renewableMW: number;
+}
+
+/** Shape of src/data/live/npp-installed-capacity.json. */
+export interface NppInstalledCapacitySnapshot {
+  meta: SourceMeta;
+  /** Time-ordered list of CEA installed-capacity readings, oldest first. */
+  points: NppInstalledCapacityPoint[];
+}
+
 /* ----------------------------------------------------------------------- */
 /* Power demand                                                               */
 /* ----------------------------------------------------------------------- */

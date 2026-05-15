@@ -49,6 +49,11 @@ therefore shows:
   last run. The quarterly-award, technology-mix and developer-league aggregates
   stay `Mock` — no historical-awards parser exists yet, so they are badged from
   `tenderAggregatesMeta` and never inherit the live tender-book badge.
+- **Capacity** → `Live` for the latest installed-capacity reading (CEA "All
+  India Installed Capacity" report via NPP — hand-curated from the Mar-2026
+  snapshot for now; auto-fetch + historical backfill are the next pieces).
+  The cumulative time-series chart and per-quarter `commissioning` stay
+  `Mock` until backfill lands.
 - **Everything else** → `Mock` — ingestion parsers for these feeds are not
   built yet.
 - **Sources page** → every probe shows its real HTTP status and latency;
@@ -78,7 +83,7 @@ only — **no UI redesign**.
 | **DCR** | Quarterly DCR module & cell production, player-wise | Mock | MNRE ALMM (List-I/II) + DCR Verification Portal (NISE) — see §5 risk |
 | **Tenders** | Quarterly awards, tender mix, developer league, tender book | **Live-first (SECI)**, mock fallback for history | SECI Tenders + SECI Tender Results |
 | **Tariffs** | Discovered tariff trend, comparison, contracts, bidders | Mock | CERC Recent Orders + SECI Tender Results |
-| **Capacity** | Quarterly commissioning by source, cumulative base | Mock | NPP Published Reports + CEA |
+| **Capacity** | Quarterly commissioning by source, cumulative base | **Live latest (CEA via NPP)**, mock history | NPP Published Reports + CEA |
 | **Demand** | Monthly demand, quarterly/yearly growth, seasonality | Mock | NPP / CEA / POSOCO power-supply position |
 | **IPP** | Developer leaderboards, pipelines, technology mix | Mock | Company disclosures + SECI/agency award data |
 | **Sources** | Source registry + live probe health | **Live** (probe results) | n/a — this *is* the provenance layer |
