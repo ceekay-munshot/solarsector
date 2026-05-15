@@ -3,10 +3,18 @@
     "status": "live",
     "sourceName": "CEA Installed Capacity (NPP)",
     "sourceUrl": "https://npp.gov.in/publishedReports",
-    "lastChecked": "2026-05-15T11:44:49.931Z",
-    "note": "Parsed 61 of 62 monthly installed-capacity readings from NPP/CEA."
+    "lastChecked": "2026-05-15T12:14:02.771Z",
+    "note": "Parsed 62 of 63 monthly installed-capacity readings from NPP/CEA."
   },
   "points": [
+    {
+      "asOf": "2021-03-31",
+      "period": "Q4 FY21",
+      "fy": "FY21",
+      "quarter": "Q4",
+      "totalMW": 382151.22,
+      "renewableMW": 94433.79
+    },
     {
       "asOf": "2021-04-30",
       "period": "Q1 FY22",
@@ -77,7 +85,14 @@
       "fy": "FY22",
       "quarter": "Q3",
       "totalMW": 393389.46,
-      "renewableMW": 104878.53
+      "renewableMW": 104878.53,
+      "bySource": {
+        "Solar": 49346.71,
+        "Wind": 40082.7,
+        "Hydro": 51351.62,
+        "Thermal": 235218.72,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-01-31",
@@ -85,7 +100,14 @@
       "fy": "FY22",
       "quarter": "Q4",
       "totalMW": 395075.06,
-      "renewableMW": 105854.13
+      "renewableMW": 105854.13,
+      "bySource": {
+        "Solar": 50303.58,
+        "Wind": 40100.93,
+        "Hydro": 51352.12,
+        "Thermal": 235928.72,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-02-28",
@@ -93,7 +115,14 @@
       "fy": "FY22",
       "quarter": "Q4",
       "totalMW": 395607.86,
-      "renewableMW": 106374.63
+      "renewableMW": 106374.63,
+      "bySource": {
+        "Solar": 50777.77,
+        "Wind": 40129.78,
+        "Hydro": 51364.42,
+        "Thermal": 235928.72,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-03-31",
@@ -101,7 +130,14 @@
       "fy": "FY22",
       "quarter": "Q4",
       "totalMW": 399496.61,
-      "renewableMW": 109885.38
+      "renewableMW": 109885.38,
+      "bySource": {
+        "Solar": 53996.54,
+        "Wind": 40357.58,
+        "Hydro": 51571.42,
+        "Thermal": 236108.72,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-04-30",
@@ -109,7 +145,14 @@
       "fy": "FY23",
       "quarter": "Q1",
       "totalMW": 401010.23,
-      "renewableMW": 111399
+      "renewableMW": 111399,
+      "bySource": {
+        "Solar": 55337.66,
+        "Wind": 40528.08,
+        "Hydro": 51573.42,
+        "Thermal": 236108.72,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-05-31",
@@ -117,7 +160,14 @@
       "fy": "FY23",
       "quarter": "Q1",
       "totalMW": 402817.4,
-      "renewableMW": 113226.47
+      "renewableMW": 113226.47,
+      "bySource": {
+        "Solar": 56951.33,
+        "Wind": 40706.38,
+        "Hydro": 51608.92,
+        "Thermal": 236088.42,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-06-30",
@@ -125,7 +175,14 @@
       "fy": "FY23",
       "quarter": "Q1",
       "totalMW": 403759.59,
-      "renewableMW": 114064.01
+      "renewableMW": 114064.01,
+      "bySource": {
+        "Solar": 57705.72,
+        "Wind": 40788.03,
+        "Hydro": 51738.07,
+        "Thermal": 236065.42,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-07-31",
@@ -133,7 +190,14 @@
       "fy": "FY23",
       "quarter": "Q2",
       "totalMW": 404132.95,
-      "renewableMW": 114437.37
+      "renewableMW": 114437.37,
+      "bySource": {
+        "Solar": 57973.78,
+        "Wind": 40893.33,
+        "Hydro": 51738.07,
+        "Thermal": 236065.42,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-08-31",
@@ -141,7 +205,14 @@
       "fy": "FY23",
       "quarter": "Q2",
       "totalMW": 405773.22,
-      "renewableMW": 116077.64
+      "renewableMW": 116077.64,
+      "bySource": {
+        "Solar": 59302.7,
+        "Wind": 41204.68,
+        "Hydro": 51738.07,
+        "Thermal": 236065.42,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-09-30",
@@ -149,7 +220,14 @@
       "fy": "FY23",
       "quarter": "Q2",
       "totalMW": 407796.57,
-      "renewableMW": 118080.32
+      "renewableMW": 118080.32,
+      "bySource": {
+        "Solar": 60813.9,
+        "Wind": 41666.08,
+        "Hydro": 51749.67,
+        "Thermal": 236086.08,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-10-31",
@@ -157,7 +235,14 @@
       "fy": "FY23",
       "quarter": "Q3",
       "totalMW": 408714.84,
-      "renewableMW": 119092.59
+      "renewableMW": 119092.59,
+      "bySource": {
+        "Solar": 61624.27,
+        "Wind": 41843.98,
+        "Hydro": 51773.67,
+        "Thermal": 235992.08,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-11-30",
@@ -165,7 +250,14 @@
       "fy": "FY23",
       "quarter": "Q3",
       "totalMW": 409161.21,
-      "renewableMW": 119512.13
+      "renewableMW": 119512.13,
+      "bySource": {
+        "Solar": 61966.36,
+        "Wind": 41895.28,
+        "Hydro": 51774.82,
+        "Thermal": 236018.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2022-12-31",
@@ -173,7 +265,14 @@
       "fy": "FY23",
       "quarter": "Q3",
       "totalMW": 410339.23,
-      "renewableMW": 120900.15
+      "renewableMW": 120900.15,
+      "bySource": {
+        "Solar": 63302.49,
+        "Wind": 41929.78,
+        "Hydro": 51785.82,
+        "Thermal": 235808.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-01-31",
@@ -181,7 +280,14 @@
       "fy": "FY23",
       "quarter": "Q4",
       "totalMW": 411648.6,
-      "renewableMW": 121549.52
+      "renewableMW": 121549.52,
+      "bySource": {
+        "Solar": 63893.83,
+        "Wind": 41983.18,
+        "Hydro": 51789.82,
+        "Thermal": 236468.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-02-28",
@@ -189,7 +295,14 @@
       "fy": "FY23",
       "quarter": "Q4",
       "totalMW": 412212.14,
-      "renewableMW": 122113.06
+      "renewableMW": 122113.06,
+      "bySource": {
+        "Solar": 64380.68,
+        "Wind": 42015.38,
+        "Hydro": 51793.27,
+        "Thermal": 236468.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-03-31",
@@ -197,7 +310,14 @@
       "fy": "FY23",
       "quarter": "Q4",
       "totalMW": 416058.89,
-      "renewableMW": 125159.81
+      "renewableMW": 125159.81,
+      "bySource": {
+        "Solar": 66780.34,
+        "Wind": 42633.13,
+        "Hydro": 51794.47,
+        "Thermal": 237268.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-04-30",
@@ -205,7 +325,14 @@
       "fy": "FY24",
       "quarter": "Q1",
       "totalMW": 416591.38,
-      "renewableMW": 125692.3
+      "renewableMW": 125692.3,
+      "bySource": {
+        "Solar": 67077.88,
+        "Wind": 42868.08,
+        "Hydro": 51794.47,
+        "Thermal": 237268.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-05-31",
@@ -213,7 +340,14 @@
       "fy": "FY24",
       "quarter": "Q1",
       "totalMW": 417668.12,
-      "renewableMW": 126769.04
+      "renewableMW": 126769.04,
+      "bySource": {
+        "Solar": 67821.22,
+        "Wind": 43198.98,
+        "Hydro": 51794.47,
+        "Thermal": 237268.91,
+        "Nuclear": 6780
+      }
     },
     {
       "asOf": "2023-06-30",
@@ -221,7 +355,14 @@
       "fy": "FY24",
       "quarter": "Q1",
       "totalMW": 421901.63,
-      "renewableMW": 129642.55
+      "renewableMW": 129642.55,
+      "bySource": {
+        "Solar": 70096.83,
+        "Wind": 43773.08,
+        "Hydro": 51809.22,
+        "Thermal": 237928.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-07-31",
@@ -229,7 +370,14 @@
       "fy": "FY24",
       "quarter": "Q2",
       "totalMW": 423359.31,
-      "renewableMW": 130886.23
+      "renewableMW": 130886.23,
+      "bySource": {
+        "Solar": 71145.01,
+        "Wind": 43940.08,
+        "Hydro": 51832.92,
+        "Thermal": 238142.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-08-31",
@@ -237,7 +385,14 @@
       "fy": "FY24",
       "quarter": "Q2",
       "totalMW": 424287.7,
-      "renewableMW": 131514.62
+      "renewableMW": 131514.62,
+      "bySource": {
+        "Solar": 71610,
+        "Wind": 44089.68,
+        "Hydro": 51832.92,
+        "Thermal": 238442.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-09-30",
@@ -245,7 +400,14 @@
       "fy": "FY24",
       "quarter": "Q2",
       "totalMW": 425406.47,
-      "renewableMW": 131783.39
+      "renewableMW": 131783.39,
+      "bySource": {
+        "Solar": 71780.74,
+        "Wind": 44184.63,
+        "Hydro": 51832.92,
+        "Thermal": 239292.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-10-31",
@@ -253,7 +415,14 @@
       "fy": "FY24",
       "quarter": "Q3",
       "totalMW": 425535.52,
-      "renewableMW": 132132.44
+      "renewableMW": 132132.44,
+      "bySource": {
+        "Solar": 72018.04,
+        "Wind": 44292.38,
+        "Hydro": 51836.92,
+        "Thermal": 239072.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-11-30",
@@ -261,7 +430,14 @@
       "fy": "FY24",
       "quarter": "Q3",
       "totalMW": 426131.6,
-      "renewableMW": 132698.52
+      "renewableMW": 132698.52,
+      "bySource": {
+        "Solar": 72311.72,
+        "Wind": 44563.68,
+        "Hydro": 51866.92,
+        "Thermal": 239072.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2023-12-31",
@@ -269,7 +445,14 @@
       "fy": "FY24",
       "quarter": "Q3",
       "totalMW": 428299.26,
-      "renewableMW": 133886.18
+      "renewableMW": 133886.18,
+      "bySource": {
+        "Solar": 73318.49,
+        "Wind": 44736.25,
+        "Hydro": 51896.92,
+        "Thermal": 240022.91,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2024-01-31",
@@ -277,7 +460,14 @@
       "fy": "FY24",
       "quarter": "Q4",
       "totalMW": 429961.45,
-      "renewableMW": 135116.36
+      "renewableMW": 135116.36,
+      "bySource": {
+        "Solar": 74306.52,
+        "Wind": 44969.24,
+        "Hydro": 51922.92,
+        "Thermal": 240436.92,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2024-02-29",
@@ -285,7 +475,14 @@
       "fy": "FY24",
       "quarter": "Q4",
       "totalMW": 434195.18,
-      "renewableMW": 136570.09
+      "renewableMW": 136570.09,
+      "bySource": {
+        "Solar": 75575.81,
+        "Wind": 45153.68,
+        "Hydro": 51922.92,
+        "Thermal": 243216.92,
+        "Nuclear": 7480
+      }
     },
     {
       "asOf": "2024-03-31",
@@ -293,7 +490,14 @@
       "fy": "FY24",
       "quarter": "Q4",
       "totalMW": 441969.6,
-      "renewableMW": 143644.51
+      "renewableMW": 143644.51,
+      "bySource": {
+        "Solar": 81813.6,
+        "Wind": 45886.51,
+        "Hydro": 51931.42,
+        "Thermal": 243216.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-04-30",
@@ -301,7 +505,14 @@
       "fy": "FY25",
       "quarter": "Q1",
       "totalMW": 442856.64,
-      "renewableMW": 144751.55
+      "renewableMW": 144751.55,
+      "bySource": {
+        "Solar": 82637.86,
+        "Wind": 46161.79,
+        "Hydro": 51933.42,
+        "Thermal": 242996.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-05-31",
@@ -309,7 +520,14 @@
       "fy": "FY25",
       "quarter": "Q1",
       "totalMW": 444756.88,
-      "renewableMW": 146651.79
+      "renewableMW": 146651.79,
+      "bySource": {
+        "Solar": 84277.42,
+        "Wind": 46422.47,
+        "Hydro": 51933.42,
+        "Thermal": 242996.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-06-30",
@@ -317,7 +535,14 @@
       "fy": "FY25",
       "quarter": "Q1",
       "totalMW": 446189.73,
-      "renewableMW": 148084.64
+      "renewableMW": 148084.64,
+      "bySource": {
+        "Solar": 85474.31,
+        "Wind": 46656.38,
+        "Hydro": 51933.42,
+        "Thermal": 242996.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-07-31",
@@ -325,7 +550,14 @@
       "fy": "FY25",
       "quarter": "Q2",
       "totalMW": 448381.45,
-      "renewableMW": 150276.36
+      "renewableMW": 150276.36,
+      "bySource": {
+        "Solar": 87207.97,
+        "Wind": 47075.43,
+        "Hydro": 51964.92,
+        "Thermal": 242996.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-08-31",
@@ -333,7 +565,14 @@
       "fy": "FY25",
       "quarter": "Q2",
       "totalMW": 450759.57,
-      "renewableMW": 152654.48
+      "renewableMW": 152654.48,
+      "bySource": {
+        "Solar": 89431.98,
+        "Wind": 47192.33,
+        "Hydro": 51998.92,
+        "Thermal": 242996.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-09-30",
@@ -341,7 +580,14 @@
       "fy": "FY25",
       "quarter": "Q2",
       "totalMW": 452694.83,
-      "renewableMW": 154529.74
+      "renewableMW": 154529.74,
+      "bySource": {
+        "Solar": 90762.12,
+        "Wind": 47362.93,
+        "Hydro": 52003.92,
+        "Thermal": 243056.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-10-31",
@@ -349,7 +595,14 @@
       "fy": "FY25",
       "quarter": "Q3",
       "totalMW": 454452.19,
-      "renewableMW": 156247.1
+      "renewableMW": 156247.1,
+      "bySource": {
+        "Solar": 92119.18,
+        "Wind": 47716.72,
+        "Hydro": 52045.42,
+        "Thermal": 243056.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-11-30",
@@ -357,7 +610,14 @@
       "fy": "FY25",
       "quarter": "Q3",
       "totalMW": 456757.49,
-      "renewableMW": 158552.4
+      "renewableMW": 158552.4,
+      "bySource": {
+        "Solar": 94167.83,
+        "Wind": 47959.13,
+        "Hydro": 52052.42,
+        "Thermal": 243056.92,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2024-12-31",
@@ -365,7 +625,14 @@
       "fy": "FY25",
       "quarter": "Q3",
       "totalMW": 462065.16,
-      "renewableMW": 162476.57
+      "renewableMW": 162476.57,
+      "bySource": {
+        "Solar": 97864.72,
+        "Wind": 48163.15,
+        "Hydro": 52068.72,
+        "Thermal": 244440.42,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2025-01-31",
@@ -373,7 +640,14 @@
       "fy": "FY25",
       "quarter": "Q4",
       "totalMW": 466250.79,
-      "renewableMW": 165202.2
+      "renewableMW": 165202.2,
+      "bySource": {
+        "Solar": 100329.83,
+        "Wind": 48365.26,
+        "Hydro": 52068.72,
+        "Thermal": 245900.42,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2025-02-28",
@@ -381,7 +655,14 @@
       "fy": "FY25",
       "quarter": "Q4",
       "totalMW": 470448.16,
-      "renewableMW": 167709.52
+      "renewableMW": 167709.52,
+      "bySource": {
+        "Solar": 102566.02,
+        "Wind": 48588.56,
+        "Hydro": 52068.72,
+        "Thermal": 247590.47,
+        "Nuclear": 8180
+      }
     },
     {
       "asOf": "2025-03-31",
@@ -389,7 +670,14 @@
       "fy": "FY25",
       "quarter": "Q4",
       "totalMW": 467885.96,
-      "renewableMW": 172368.17
+      "renewableMW": 172368.17,
+      "bySource": {
+        "Solar": 105646.49,
+        "Wind": 50037.82,
+        "Hydro": 52828.71,
+        "Thermal": 239709.62,
+        "Nuclear": 8080
+      }
     },
     {
       "asOf": "2025-04-30",
@@ -397,7 +685,14 @@
       "fy": "FY26",
       "quarter": "Q1",
       "totalMW": 472468.01,
-      "renewableMW": 175700.22
+      "renewableMW": 175700.22,
+      "bySource": {
+        "Solar": 107945.61,
+        "Wind": 51058.55,
+        "Hydro": 53030.21,
+        "Thermal": 240059.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-05-31",
@@ -405,7 +700,14 @@
       "fy": "FY26",
       "quarter": "Q1",
       "totalMW": 475590.38,
-      "renewableMW": 178822.59
+      "renewableMW": 178822.59,
+      "bySource": {
+        "Solar": 110834.28,
+        "Wind": 51292.25,
+        "Hydro": 53030.21,
+        "Thermal": 240059.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-06-30",
@@ -413,7 +715,14 @@
       "fy": "FY26",
       "quarter": "Q1",
       "totalMW": 484818.82,
-      "renewableMW": 184621.03
+      "renewableMW": 184621.03,
+      "bySource": {
+        "Solar": 116247.83,
+        "Wind": 51674.85,
+        "Hydro": 54480.21,
+        "Thermal": 242039.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-07-31",
@@ -421,7 +730,14 @@
       "fy": "FY26",
       "quarter": "Q2",
       "totalMW": 490060.69,
-      "renewableMW": 187862.9
+      "renewableMW": 187862.9,
+      "bySource": {
+        "Solar": 119016.54,
+        "Wind": 52140.1,
+        "Hydro": 54736.87,
+        "Thermal": 243789.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-08-31",
@@ -429,7 +745,14 @@
       "fy": "FY26",
       "quarter": "Q2",
       "totalMW": 495545.38,
-      "renewableMW": 192517.59
+      "renewableMW": 192517.59,
+      "bySource": {
+        "Solar": 123130.13,
+        "Wind": 52681.19,
+        "Hydro": 55216.87,
+        "Thermal": 244139.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-09-30",
@@ -437,7 +760,14 @@
       "fy": "FY26",
       "quarter": "Q2",
       "totalMW": 500889.22,
-      "renewableMW": 197201.43
+      "renewableMW": 197201.43,
+      "bySource": {
+        "Solar": 127332.27,
+        "Wind": 53123.79,
+        "Hydro": 55241.77,
+        "Thermal": 244799.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-10-31",
@@ -445,7 +775,14 @@
       "fy": "FY26",
       "quarter": "Q3",
       "totalMW": 505023.07,
-      "renewableMW": 200295.28
+      "renewableMW": 200295.28,
+      "bySource": {
+        "Solar": 129923.83,
+        "Wind": 53599.91,
+        "Hydro": 55506.77,
+        "Thermal": 245599.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-11-30",
@@ -453,7 +790,14 @@
       "fy": "FY26",
       "quarter": "Q3",
       "totalMW": 509743.1,
-      "renewableMW": 203606.81
+      "renewableMW": 203606.81,
+      "bySource": {
+        "Solar": 132848.26,
+        "Wind": 53986.01,
+        "Hydro": 55573.27,
+        "Thermal": 246941.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2025-12-31",
@@ -461,7 +805,14 @@
       "fy": "FY26",
       "quarter": "Q3",
       "totalMW": 513729.7,
-      "renewableMW": 207093.41
+      "renewableMW": 207093.41,
+      "bySource": {
+        "Solar": 135809.95,
+        "Wind": 54510.93,
+        "Hydro": 56073.27,
+        "Thermal": 246941.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2026-01-31",
@@ -469,7 +820,14 @@
       "fy": "FY26",
       "quarter": "Q4",
       "totalMW": 520510.96,
-      "renewableMW": 212024.67
+      "renewableMW": 212024.67,
+      "bySource": {
+        "Solar": 140601.73,
+        "Wind": 54650.4,
+        "Hydro": 56323.27,
+        "Thermal": 248541.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2026-02-28",
@@ -477,7 +835,14 @@
       "fy": "FY26",
       "quarter": "Q4",
       "totalMW": 524009.47,
-      "renewableMW": 215523.18
+      "renewableMW": 215523.18,
+      "bySource": {
+        "Solar": 143604.35,
+        "Wind": 55132.5,
+        "Hydro": 56336.02,
+        "Thermal": 248541.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2026-03-31",
@@ -485,7 +850,14 @@
       "fy": "FY26",
       "quarter": "Q4",
       "totalMW": 532739.72,
-      "renewableMW": 223273.43
+      "renewableMW": 223273.43,
+      "bySource": {
+        "Solar": 150260.7,
+        "Wind": 56094.84,
+        "Hydro": 56586.02,
+        "Thermal": 249271.62,
+        "Nuclear": 8780
+      }
     },
     {
       "asOf": "2026-04-30",
@@ -493,7 +865,14 @@
       "fy": "FY27",
       "quarter": "Q1",
       "totalMW": 537264.41,
-      "renewableMW": 227590.62
+      "renewableMW": 227590.62,
+      "bySource": {
+        "Solar": 154236.14,
+        "Wind": 56436.59,
+        "Hydro": 56836.02,
+        "Thermal": 249229.12,
+        "Nuclear": 8780
+      }
     }
   ]
 }
