@@ -223,10 +223,11 @@ const NPP_MONTH_ABBR = [
   "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
 ];
-// Dashboard window starts at FY22 Q1 → Apr 2021. We attempt every month from
-// here through the current month; failures (e.g. month not yet published)
-// are silent.
-const NPP_WINDOW_START = { year: 2021, month: 4 };
+// Dashboard window starts at FY22 Q1 → Apr 2021. We start one month *earlier*
+// (Mar 2021 = end of Q4 FY21) so the resolver has a baseline cumulative reading
+// to derive Q1 FY22 commissioning from. Failures (e.g. month not published yet,
+// or pre-existing in archive) are silent.
+const NPP_WINDOW_START = { year: 2021, month: 3 };
 
 function nppCapacityUrl(year, monthNum) {
   const abbr = NPP_MONTH_ABBR[monthNum - 1];
@@ -323,6 +324,89 @@ function parseCapacityXls(buffer, year, monthNum) {
   // Renewable should be a strict subset of total.
   if (renewableMW >= totalMW) return null;
 
+  // --- Per-source extraction -------------------------------------------
+  // Best-effort: if any header is missing or values look wrong we just skip
+  // bySource (the cumulative readings still go in). The dashboard's resolver
+  // falls back to mock commissioning when bySource is absent.
+  const headerCol = (label) => {
+    const cell = findCell(
+      (v) =>
+        typeof v === "string" && v.trim().toLowerCase() === label.toLowerCase(),
+    );
+    return cell?.col;
+  };
+  const coalCol = headerCol("Coal");
+  const ligniteCol = headerCol("Lignite");
+  const gasCol = headerCol("Gas");
+  const dieselCol = headerCol("Diesel");
+  const hydroCol = headerCol("Hydro");
+  const nuclearCol = headerCol("Nuclear");
+
+  let bySource;
+  if (
+    coalCol != null && ligniteCol != null && gasCol != null &&
+    dieselCol != null && hydroCol != null && nuclearCol != null
+  ) {
+    const coal = Number(totalRow[coalCol]);
+    const lignite = Number(totalRow[ligniteCol]);
+    const gas = Number(totalRow[gasCol]);
+    const diesel = Number(totalRow[dieselCol]);
+    const hydroLargeMW = Number(totalRow[hydroCol]);
+    const nuclearMW = Number(totalRow[nuclearCol]);
+
+    // RES breakup table — Solar Power, Wind Power, Small Hydro Power live in
+    // a small table below the main one. Find their headers, then scan the
+    // next few rows for the data row that has finite numbers at those cols.
+    const solarHeader = findCell(
+      (v) => typeof v === "string" && /^solar\s*power$/i.test(v.trim()),
+    );
+    const windHeader = findCell(
+      (v) => typeof v === "string" && /^wind\s*power$/i.test(v.trim()),
+    );
+    const smallHydroHeader = findCell(
+      (v) => typeof v === "string" && /^small\s*hydro\s*power$/i.test(v.trim()),
+    );
+
+    let solarMW = NaN;
+    let windMW = NaN;
+    let smallHydroMW = 0;
+    if (solarHeader && windHeader) {
+      const start = Math.max(solarHeader.row, windHeader.row);
+      for (let r = start + 1; r < Math.min(start + 6, rows.length); r++) {
+        const row = rows[r];
+        if (!Array.isArray(row)) continue;
+        const s = Number(row[solarHeader.col]);
+        const w = Number(row[windHeader.col]);
+        if (Number.isFinite(s) && Number.isFinite(w) && s > 0 && w > 0) {
+          solarMW = s;
+          windMW = w;
+          if (smallHydroHeader) {
+            const sh = Number(row[smallHydroHeader.col]);
+            if (Number.isFinite(sh) && sh >= 0) smallHydroMW = sh;
+          }
+          break;
+        }
+      }
+    }
+
+    const allFinite = [
+      coal, lignite, gas, diesel, hydroLargeMW, nuclearMW, solarMW, windMW,
+    ].every(Number.isFinite);
+    // Sanity: solar + wind should account for the bulk of RES but not exceed it.
+    const consistent =
+      allFinite && solarMW + windMW > 0 && solarMW + windMW <= renewableMW;
+
+    if (consistent) {
+      bySource = {
+        Solar: nppRound2(solarMW),
+        Wind: nppRound2(windMW),
+        Hydro: nppRound2(hydroLargeMW + smallHydroMW),
+        Thermal: nppRound2(coal + lignite + gas + diesel),
+        Nuclear: nppRound2(nuclearMW),
+      };
+    }
+  }
+
   const { fy, quarter, period } = nppPeriodFromMonth(year, monthNum);
   const asOf = `${year}-${String(monthNum).padStart(2, "0")}-${String(
     nppLastDayOfMonth(year, monthNum),
@@ -335,6 +419,7 @@ function parseCapacityXls(buffer, year, monthNum) {
     quarter,
     totalMW: nppRound2(totalMW),
     renewableMW: nppRound2(renewableMW),
+    ...(bySource ? { bySource } : {}),
   };
 }
 

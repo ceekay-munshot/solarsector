@@ -45,19 +45,26 @@ export const tenderAggregatesMeta = tenderMock.meta;
 /**
  * CEA installed-capacity readings via NPP. The committed snapshot grows by
  * one monthly point per ingestion run; the resolver picks each quarter-end
- * reading and splices it into the cumulative time-series. Per-quarter
- * `commissioning` stays mock — see `capacityCommissioningMeta`.
+ * reading and splices it into the cumulative time-series and (when per-source
+ * `bySource` data is present) derives per-quarter commissioning by
+ * differencing consecutive quarter-end stocks.
  */
 export const capacityData = resolveCapacityData(capacityMock, nppCapacitySnapshot);
 
 /**
- * Provenance for capacity *commissioning* — the per-quarter additions by
- * source. CEA's installed-capacity report gives stock, not flow, and doesn't
- * break out per-source additions, so these visuals stay mock and must badge
- * with this, not `capacityData.meta`, or live cumulative would mislabel mock
- * commissioning charts.
+ * Provenance specifically for the per-source commissioning visuals. Lights up
+ * "live" only once the snapshot carries `bySource` per-source breakdowns —
+ * during the gap between merging the per-source parser change and the next
+ * ingestion run that re-populates the snapshot, this stays on the mock meta
+ * so the commissioning chart honestly badges Mock until real data lands.
+ * BESS is omitted from the per-source chart on the Capacity page since CEA's
+ * installed-capacity report doesn't track battery storage.
  */
-export const capacityCommissioningMeta = capacityMock.meta;
+export const capacityCommissioningMeta =
+  nppCapacitySnapshot.meta.status === "live" &&
+  nppCapacitySnapshot.points.some((p) => p.bySource != null)
+    ? capacityData.meta
+    : capacityMock.meta;
 
 /** Feeds awaiting a live ingestion parser — mock for now, clearly badged. */
 export const dcrData = dcrMock;

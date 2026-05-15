@@ -21,13 +21,17 @@ import { pctChange } from "@/lib/seededRandom";
 import type { PowerSource } from "@/lib/types";
 
 const capacity = capacityData.value;
+// BESS is intentionally omitted from the per-source visuals on this page —
+// CEA's installed-capacity report doesn't break out battery storage, so we
+// can't derive live commissioning for it from this feed. A separate BESS
+// source (likely MNRE / NLDC) is on the roadmap; until then, showing a mock
+// BESS slice next to live live-derived sources would mix provenance silently.
 const sources: PowerSource[] = [
   "Solar",
   "Wind",
   "Hydro",
   "Thermal",
   "Nuclear",
-  "BESS",
 ];
 const sourceSeries = sources.map((s) => ({
   key: s,
@@ -70,10 +74,10 @@ export default function CapacityPage() {
       <PageHeader
         eyebrow="Generation Build-out"
         title="Capacity — Commissioning by Source"
-        description="Quarterly capacity commissioning across solar, wind, hydro, thermal, nuclear and BESS, plus the cumulative installed base. The cumulative time-series is live from CEA monthly reports (via NPP); per-quarter commissioning by source stays mock until the parser is extended to extract per-source columns."
+        description="Quarterly capacity commissioning by power source plus the cumulative installed base — both live from the CEA monthly reports (via NPP). BESS isn't in CEA's installed-capacity feed and isn't shown here; a dedicated BESS source is roadmap work."
         datasets={[
           { label: "Cumulative installed capacity", meta: capacityData.meta },
-          { label: "Capacity commissioning", meta: capacityCommissioningMeta },
+          { label: "Per-source commissioning", meta: capacityCommissioningMeta },
         ]}
       />
 

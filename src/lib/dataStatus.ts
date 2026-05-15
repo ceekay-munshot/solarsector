@@ -5,6 +5,7 @@
  */
 import type {
   AccentTone,
+  CapacityCommissionPoint,
   CapacityCumulativePoint,
   CapacityData,
   DataStatus,
@@ -164,14 +165,27 @@ const QUARTER_END_MONTH: Record<Quarter, number> = {
   Q4: 3, // Mar
 };
 
+/** Period before the given one — "Q1 FY22" → "Q4 FY21". */
+function prevPeriod(period: string): string {
+  const [q, fy] = period.split(" ");
+  const qNum = Number(q[1]);
+  const fyNum = Number(fy.slice(2));
+  if (qNum === 1) {
+    return `Q4 FY${String(fyNum - 1).padStart(2, "0")}`;
+  }
+  return `Q${qNum - 1} FY${fy.slice(2)}`;
+}
+
 /**
  * Capacity-specific resolver. The CEA installed-capacity feed gives a monthly
- * cumulative *stock* — perfect for the cumulative time-series chart. We pick
- * the quarter-end reading for each quarter in the dashboard window and splice
- * it into the mock cumulative series; quarters with no live reading fall back
- * to mock so the chart never has gaps. Per-quarter `commissioning` (the
- * "flow" series, broken down by power source) stays mock here — extracting
- * the per-source breakdown from the CEA report is the next parser change.
+ * cumulative *stock*; the resolver picks each quarter-end reading and splices
+ * it into the mock cumulative series. When a snapshot point also carries
+ * per-source bySource data, we derive per-quarter `commissioning` (additions
+ * by source) by differencing consecutive quarter-end stocks. Quarters with
+ * no live reading — or no per-source data on either side of the diff — fall
+ * back to mock so charts never have gaps. CEA's report doesn't break out
+ * BESS, so the BESS slice of `commissioning` stays mock either way (the
+ * Capacity page hides BESS from the per-source chart).
  */
 export function resolveCapacityData(
   mock: Dataset<CapacityData>,
@@ -181,7 +195,9 @@ export function resolveCapacityData(
     return mock;
   }
 
-  // Build period → live point, keyed by quarter-end month.
+  // Build period → live point, keyed by quarter-end month. Includes points
+  // outside the dashboard window (e.g. Q4 FY21) so the differencing has a
+  // baseline for Q1 FY22.
   const livePoints = new Map<string, NppInstalledCapacityPoint>();
   for (const p of snapshot.points) {
     const monthNum = Number(p.asOf.slice(5, 7));
@@ -191,11 +207,11 @@ export function resolveCapacityData(
   }
   if (livePoints.size === 0) return mock;
 
-  let liveCount = 0;
+  let cumulativeLiveCount = 0;
   const cumulative: CapacityCumulativePoint[] = mock.value.cumulative.map((m) => {
     const live = livePoints.get(m.period);
     if (!live) return m;
-    liveCount++;
+    cumulativeLiveCount++;
     return {
       period: m.period,
       fy: m.fy,
@@ -205,23 +221,47 @@ export function resolveCapacityData(
     };
   });
 
-  const allLive = liveCount === mock.value.cumulative.length;
+  let commissioningLiveCount = 0;
+  const commissioning: CapacityCommissionPoint[] = mock.value.commissioning.map(
+    (m) => {
+      const curr = livePoints.get(m.period);
+      if (!curr?.bySource) return m;
+      const prev = livePoints.get(prevPeriod(m.period));
+      if (!prev?.bySource) return m;
+      commissioningLiveCount++;
+      // Math.max guards against rare cases where decommissioning would push
+      // a per-source diff negative — chart bars must never go below zero.
+      return {
+        period: m.period,
+        fy: m.fy,
+        quarter: m.quarter,
+        Solar: Math.max(0, curr.bySource.Solar - prev.bySource.Solar),
+        Wind: Math.max(0, curr.bySource.Wind - prev.bySource.Wind),
+        Hydro: Math.max(0, curr.bySource.Hydro - prev.bySource.Hydro),
+        Thermal: Math.max(0, curr.bySource.Thermal - prev.bySource.Thermal),
+        Nuclear: Math.max(0, curr.bySource.Nuclear - prev.bySource.Nuclear),
+        // CEA report doesn't track BESS — keep the mock value. The Capacity
+        // page omits BESS from the per-source chart, so this isn't displayed.
+        BESS: m.BESS,
+      };
+    },
+  );
+
+  const totalQuarters = mock.value.cumulative.length;
+  const allLive =
+    cumulativeLiveCount === totalQuarters &&
+    commissioningLiveCount === totalQuarters;
   const meta: SourceMeta = allLive
     ? snapshot.meta
     : {
         ...snapshot.meta,
-        note: `${liveCount}/${mock.value.cumulative.length} quarters are live; remaining quarters fall back to mock.${
+        note: `Cumulative: ${cumulativeLiveCount}/${totalQuarters} quarters live · commissioning: ${commissioningLiveCount}/${totalQuarters} quarters derived from per-source live data; remaining quarters fall back to mock.${
           snapshot.meta.note ? " " + snapshot.meta.note : ""
         }`,
       };
 
   return {
     meta,
-    value: {
-      // commissioning stays mock — CEA's installed-capacity report gives stock,
-      // not flow, and doesn't break out per-source additions.
-      commissioning: mock.value.commissioning,
-      cumulative,
-    },
+    value: { commissioning, cumulative },
   };
 }
