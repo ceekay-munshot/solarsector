@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-15T12:20:13.851Z",
-    "note": "Parsed 47 tender rows from SECI on the last run."
+    "lastChecked": "2026-05-15T12:28:22.657Z",
+    "note": "Parsed 47 tender rows from SECI · 39 awarded rows aggregated into the award/mix series (period derived from the date in each tender title — typically issue date, not award date)."
   },
   "records": [
     {
@@ -477,5 +477,215 @@
       "date": "14/01/2020",
       "period": "Q1 FY27"
     }
-  ]
+  ],
+  "aggregates": {
+    "quarterlyAwards": [
+      {
+        "period": "Q1 FY27",
+        "fy": "FY27",
+        "quarter": "Q1",
+        "awardedMW": 30204
+      },
+      {
+        "period": "Q3 FY27",
+        "fy": "FY27",
+        "quarter": "Q3",
+        "awardedMW": 1200
+      },
+      {
+        "period": "Q3 FY26",
+        "fy": "FY26",
+        "quarter": "Q3",
+        "awardedMW": 2000
+      },
+      {
+        "period": "Q1 FY26",
+        "fy": "FY26",
+        "quarter": "Q1",
+        "awardedMW": 1600
+      },
+      {
+        "period": "Q4 FY25",
+        "fy": "FY25",
+        "quarter": "Q4",
+        "awardedMW": 500
+      },
+      {
+        "period": "Q2 FY24",
+        "fy": "FY24",
+        "quarter": "Q2",
+        "awardedMW": 5750
+      },
+      {
+        "period": "Q2 FY25",
+        "fy": "FY25",
+        "quarter": "Q2",
+        "awardedMW": 3000
+      },
+      {
+        "period": "Q1 FY25",
+        "fy": "FY25",
+        "quarter": "Q1",
+        "awardedMW": 1260
+      },
+      {
+        "period": "Q4 FY23",
+        "fy": "FY23",
+        "quarter": "Q4",
+        "awardedMW": 500
+      },
+      {
+        "period": "Q1 FY23",
+        "fy": "FY23",
+        "quarter": "Q1",
+        "awardedMW": 1200
+      },
+      {
+        "period": "Q4 FY22",
+        "fy": "FY22",
+        "quarter": "Q4",
+        "awardedMW": 2400
+      },
+      {
+        "period": "Q1 FY22",
+        "fy": "FY22",
+        "quarter": "Q1",
+        "awardedMW": 1785
+      }
+    ],
+    "mix": [
+      {
+        "period": "Q1 FY27",
+        "fy": "FY27",
+        "quarter": "Q1",
+        "Solar": 11475,
+        "FDRE": 2000,
+        "Wind": 5600,
+        "BESS": 1329,
+        "Hybrid": 3600,
+        "RTC": 6200
+      },
+      {
+        "period": "Q3 FY27",
+        "fy": "FY27",
+        "quarter": "Q3",
+        "Solar": 0,
+        "FDRE": 1200,
+        "Wind": 0,
+        "BESS": 0,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q3 FY26",
+        "fy": "FY26",
+        "quarter": "Q3",
+        "Solar": 0,
+        "FDRE": 0,
+        "Wind": 0,
+        "BESS": 2000,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q1 FY26",
+        "fy": "FY26",
+        "quarter": "Q1",
+        "Solar": 1200,
+        "FDRE": 0,
+        "Wind": 0,
+        "BESS": 0,
+        "Hybrid": 400,
+        "RTC": 0
+      },
+      {
+        "period": "Q4 FY25",
+        "fy": "FY25",
+        "quarter": "Q4",
+        "Solar": 0,
+        "FDRE": 0,
+        "Wind": 500,
+        "BESS": 0,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q2 FY24",
+        "fy": "FY24",
+        "quarter": "Q2",
+        "Solar": 2000,
+        "FDRE": 0,
+        "Wind": 2550,
+        "BESS": 0,
+        "Hybrid": 1200,
+        "RTC": 0
+      },
+      {
+        "period": "Q2 FY25",
+        "fy": "FY25",
+        "quarter": "Q2",
+        "Solar": 1000,
+        "FDRE": 0,
+        "Wind": 0,
+        "BESS": 0,
+        "Hybrid": 2000,
+        "RTC": 0
+      },
+      {
+        "period": "Q1 FY25",
+        "fy": "FY25",
+        "quarter": "Q1",
+        "Solar": 0,
+        "FDRE": 1260,
+        "Wind": 0,
+        "BESS": 0,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q4 FY23",
+        "fy": "FY23",
+        "quarter": "Q4",
+        "Solar": 0,
+        "FDRE": 0,
+        "Wind": 0,
+        "BESS": 500,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q1 FY23",
+        "fy": "FY23",
+        "quarter": "Q1",
+        "Solar": 0,
+        "FDRE": 0,
+        "Wind": 1200,
+        "BESS": 0,
+        "Hybrid": 0,
+        "RTC": 0
+      },
+      {
+        "period": "Q4 FY22",
+        "fy": "FY22",
+        "quarter": "Q4",
+        "Solar": 0,
+        "FDRE": 0,
+        "Wind": 1200,
+        "BESS": 0,
+        "Hybrid": 1200,
+        "RTC": 0
+      },
+      {
+        "period": "Q1 FY22",
+        "fy": "FY22",
+        "quarter": "Q1",
+        "Solar": 1785,
+        "FDRE": 0,
+        "Wind": 0,
+        "BESS": 0,
+        "Hybrid": 0,
+        "RTC": 0
+      }
+    ]
+  }
 }

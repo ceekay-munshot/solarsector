@@ -34,13 +34,25 @@ export const tenderData = resolveTenderData(tenderMock, seciSnapshot);
 export const seciSnapshotMeta = seciSnapshot.meta;
 
 /**
- * Provenance for the tender *aggregates* — quarterly awards, technology mix and
- * the developer league. `resolveTenderData` only swaps the live SECI snapshot
- * into the `records` list, so `tenderData.meta` reads "live" while these
- * aggregates are still mock. Visuals driven by the aggregates must badge with
- * this, not `tenderData.meta`, or a live tender book mislabels mock charts.
+ * Provenance for the tender *award + mix aggregates* (quarterly awards and the
+ * tech-mix chart). Lights up live only once the SECI snapshot carries
+ * `aggregates` — until the parser change lands and CI re-populates the
+ * snapshot, this stays on the mock meta so the visuals honestly badge Mock.
+ * The developer-league table has its own meta below — players are still
+ * mock since the parser doesn't extract winners yet.
  */
-export const tenderAggregatesMeta = tenderMock.meta;
+export const tenderAggregatesMeta =
+  seciSnapshot.meta.status === "live" && seciSnapshot.aggregates
+    ? seciSnapshot.meta
+    : tenderMock.meta;
+
+/**
+ * Developer-league (players) provenance — stays on mock until the parser is
+ * extended to extract winner names from SECI's results page. The Tenders
+ * page's "Awards by developer" table badges from this so an otherwise-live
+ * snapshot doesn't leak its badge onto the still-synthetic player roster.
+ */
+export const tenderPlayersMeta = tenderMock.meta;
 
 /**
  * CEA installed-capacity readings via NPP. The committed snapshot grows by

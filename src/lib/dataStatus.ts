@@ -127,20 +127,58 @@ export function resolveDataset<T>(
 }
 
 /**
- * Tender-specific resolver. The SECI live snapshot only carries a tender
- * *records* list; the quarterly/mix/player aggregates stay on mock until a
- * historical-awards parser exists. When SECI is live we swap the records list
- * into the mock aggregates and badge the combined dataset as live.
+ * Tender-specific resolver. The SECI live snapshot always carries a tender
+ * *records* list, and (when the snapshot was written by a parser version that
+ * has the aggregator) optional quarterly-award + tech-mix aggregates derived
+ * from awarded SECI Tender Results rows. We splice both onto the mock
+ * dataset; the player-league table stays on mock either way (the parser
+ * doesn't extract winner data yet).
  */
 export function resolveTenderData(
   mock: Dataset<TenderData>,
   snapshot?: SeciLiveSnapshot | null,
 ): Dataset<TenderData> {
   if (snapshot && snapshot.meta.status === "live" && snapshot.records.length > 0) {
-    return {
-      meta: snapshot.meta,
-      value: { ...mock.value, records: snapshot.records },
-    };
+    const value: TenderData = { ...mock.value, records: snapshot.records };
+    let meta = snapshot.meta;
+
+    if (snapshot.aggregates) {
+      // Splice live awards/mix per period; quarters with no live data fall
+      // back to the mock value so the chart never has gaps.
+      const liveAwards = new Map(
+        snapshot.aggregates.quarterlyAwards.map((p) => [p.period, p]),
+      );
+      const liveMix = new Map(
+        snapshot.aggregates.mix.map((p) => [p.period, p]),
+      );
+      let awardsLiveCount = 0;
+      value.quarterlyAwards = mock.value.quarterlyAwards.map((m) => {
+        const live = liveAwards.get(m.period);
+        if (live) awardsLiveCount++;
+        return live ?? m;
+      });
+      let mixLiveCount = 0;
+      value.mix = mock.value.mix.map((m) => {
+        const live = liveMix.get(m.period);
+        if (live) mixLiveCount++;
+        return live ?? m;
+      });
+
+      const totalQuarters = mock.value.quarterlyAwards.length;
+      if (
+        awardsLiveCount < totalQuarters ||
+        mixLiveCount < totalQuarters
+      ) {
+        meta = {
+          ...snapshot.meta,
+          note: `Awards: ${awardsLiveCount}/${totalQuarters} quarters live · mix: ${mixLiveCount}/${totalQuarters} quarters live; remaining quarters fall back to mock.${
+            snapshot.meta.note ? " " + snapshot.meta.note : ""
+          }`,
+        };
+      }
+    }
+
+    return { meta, value };
   }
   if (snapshot && snapshot.meta.status === "fallback") {
     return {

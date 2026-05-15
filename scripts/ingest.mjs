@@ -163,17 +163,78 @@ function parseSeciTenders(html, defaultStage) {
 /* ----------------------------------------------------------------------- */
 /* SECI ingestion.                                                          */
 /* ----------------------------------------------------------------------- */
+
+const SECI_TECHS = ["Solar", "FDRE", "Wind", "BESS", "Hybrid", "RTC"];
+
+/**
+ * Build quarterly award + tech-mix aggregates from awarded SECI tender rows.
+ * Returns null when there's nothing usable — the resolver then falls back to
+ * mock for those parts. Period mapping uses the date in each tender title,
+ * which is typically the *issue* date rather than the award date — the meta
+ * note flags this so the badge story stays honest.
+ */
+function buildSeciAggregates(awardedRecords) {
+  const usable = awardedRecords.filter(
+    (r) => r.period && Number.isFinite(r.capacityMW) && r.capacityMW > 0,
+  );
+  if (usable.length < 5) return null;
+
+  const byPeriod = new Map();
+  for (const r of usable) {
+    if (!byPeriod.has(r.period)) byPeriod.set(r.period, []);
+    byPeriod.get(r.period).push(r);
+  }
+  if (byPeriod.size < 2) return null;
+
+  const periods = [...byPeriod.entries()];
+  const quarterlyAwards = periods.map(([period, list]) => {
+    const [q, fy] = period.split(" ");
+    return {
+      period,
+      fy,
+      quarter: q,
+      awardedMW: Math.round(list.reduce((acc, r) => acc + r.capacityMW, 0)),
+    };
+  });
+
+  const mix = periods.map(([period, list]) => {
+    const [q, fy] = period.split(" ");
+    const slot = {
+      period, fy, quarter: q,
+      Solar: 0, FDRE: 0, Wind: 0, BESS: 0, Hybrid: 0, RTC: 0,
+    };
+    for (const r of list) {
+      if (SECI_TECHS.includes(r.tech)) slot[r.tech] += r.capacityMW;
+    }
+    for (const t of SECI_TECHS) slot[t] = Math.round(slot[t]);
+    return slot;
+  });
+
+  return { quarterlyAwards, mix, awardedRecordCount: usable.length };
+}
+
 async function ingestSeci(now) {
   const tendersUrl = "https://www.seci.co.in/tenders";
   const resultsUrl = "https://www.seci.co.in/tenders/results";
   const [a, b] = await Promise.all([safeFetch(tendersUrl), safeFetch(resultsUrl)]);
 
-  let records = [];
-  if (a.ok) records = records.concat(parseSeciTenders(a.body, "Announced"));
-  if (b.ok) records = records.concat(parseSeciTenders(b.body, "Awarded"));
+  const tendersPageRecords = a.ok ? parseSeciTenders(a.body, "Announced") : [];
+  const resultsPageRecords = b.ok ? parseSeciTenders(b.body, "Awarded") : [];
+
+  // For aggregates: results-page rows are awarded by definition. The parser's
+  // `guessStage` heuristic over-applies the "Announced" tag (anything with
+  // "RfS" in the title gets re-tagged), so we override here to trust the
+  // source page rather than the keyword search.
+  const awardedFromResults = resultsPageRecords.map((r) => ({
+    ...r,
+    stage: "Awarded",
+  }));
+  const aggregates = buildSeciAggregates(awardedFromResults);
 
   // De-dupe on title + capacity, then assign ids over the de-duped set so the
-  // two parse passes (tenders + results) can't emit colliding ids.
+  // two parse passes (tenders + results) can't emit colliding ids. Records
+  // keep their per-row stage classification for the tender-book table.
+  let records = [...tendersPageRecords, ...resultsPageRecords];
   const seen = new Set();
   records = records
     .filter((r) => {
@@ -191,9 +252,19 @@ async function ingestSeci(now) {
         sourceName: "SECI Tenders (live)",
         sourceUrl: tendersUrl,
         lastChecked: now,
-        note: `Parsed ${records.length} tender rows from SECI on the last run.`,
+        note: aggregates
+          ? `Parsed ${records.length} tender rows from SECI · ${aggregates.awardedRecordCount} awarded rows aggregated into the award/mix series (period derived from the date in each tender title — typically issue date, not award date).`
+          : `Parsed ${records.length} tender rows from SECI on the last run.`,
       },
       records,
+      ...(aggregates
+        ? {
+            aggregates: {
+              quarterlyAwards: aggregates.quarterlyAwards,
+              mix: aggregates.mix,
+            },
+          }
+        : {}),
     };
   }
 
