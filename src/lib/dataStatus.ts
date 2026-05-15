@@ -140,6 +140,7 @@ export function resolveTenderData(
 ): Dataset<TenderData> {
   if (snapshot && snapshot.meta.status === "live" && snapshot.records.length > 0) {
     const value: TenderData = { ...mock.value, records: snapshot.records };
+    let meta = snapshot.meta;
 
     if (snapshot.aggregates) {
       // Splice live awards/mix per period; quarters with no live data fall
@@ -150,13 +151,34 @@ export function resolveTenderData(
       const liveMix = new Map(
         snapshot.aggregates.mix.map((p) => [p.period, p]),
       );
-      value.quarterlyAwards = mock.value.quarterlyAwards.map(
-        (m) => liveAwards.get(m.period) ?? m,
-      );
-      value.mix = mock.value.mix.map((m) => liveMix.get(m.period) ?? m);
+      let awardsLiveCount = 0;
+      value.quarterlyAwards = mock.value.quarterlyAwards.map((m) => {
+        const live = liveAwards.get(m.period);
+        if (live) awardsLiveCount++;
+        return live ?? m;
+      });
+      let mixLiveCount = 0;
+      value.mix = mock.value.mix.map((m) => {
+        const live = liveMix.get(m.period);
+        if (live) mixLiveCount++;
+        return live ?? m;
+      });
+
+      const totalQuarters = mock.value.quarterlyAwards.length;
+      if (
+        awardsLiveCount < totalQuarters ||
+        mixLiveCount < totalQuarters
+      ) {
+        meta = {
+          ...snapshot.meta,
+          note: `Awards: ${awardsLiveCount}/${totalQuarters} quarters live · mix: ${mixLiveCount}/${totalQuarters} quarters live; remaining quarters fall back to mock.${
+            snapshot.meta.note ? " " + snapshot.meta.note : ""
+          }`,
+        };
+      }
     }
 
-    return { meta: snapshot.meta, value };
+    return { meta, value };
   }
   if (snapshot && snapshot.meta.status === "fallback") {
     return {
