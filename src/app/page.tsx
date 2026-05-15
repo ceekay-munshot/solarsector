@@ -14,7 +14,6 @@ import { SectionTitle } from "@/components/primitives/SectionTitle";
 import { RankingTable } from "@/components/tables/RankingTable";
 import {
   capacityData,
-  capacityLatest,
   dcrData,
   demandData,
   ippData,
@@ -76,8 +75,7 @@ export default function OverviewPage() {
           { label: "Tender aggregates", meta: tenderAggregatesMeta },
           { label: "DCR", meta: dcrData.meta },
           { label: "Tariffs", meta: tariffData.meta },
-          { label: "Capacity (latest)", meta: capacityLatest.meta },
-          { label: "Capacity history", meta: capacityData.meta },
+          { label: "Capacity", meta: capacityData.meta },
           { label: "Demand", meta: demandData.meta },
           { label: "IPP", meta: ippData.meta },
         ]}

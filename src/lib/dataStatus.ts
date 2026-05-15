@@ -5,9 +5,14 @@
  */
 import type {
   AccentTone,
+  CapacityCumulativePoint,
+  CapacityData,
   DataStatus,
   Dataset,
+  NppInstalledCapacityPoint,
+  NppInstalledCapacitySnapshot,
   ProbeStatus,
+  Quarter,
   SeciLiveSnapshot,
   SourceMeta,
   TenderData,
@@ -149,4 +154,74 @@ export function resolveTenderData(
     };
   }
   return mock;
+}
+
+/** Calendar month at the end of each Indian-FY quarter — picks the right NPP reading per quarter. */
+const QUARTER_END_MONTH: Record<Quarter, number> = {
+  Q1: 6, // Jun
+  Q2: 9, // Sep
+  Q3: 12, // Dec
+  Q4: 3, // Mar
+};
+
+/**
+ * Capacity-specific resolver. The CEA installed-capacity feed gives a monthly
+ * cumulative *stock* — perfect for the cumulative time-series chart. We pick
+ * the quarter-end reading for each quarter in the dashboard window and splice
+ * it into the mock cumulative series; quarters with no live reading fall back
+ * to mock so the chart never has gaps. Per-quarter `commissioning` (the
+ * "flow" series, broken down by power source) stays mock here — extracting
+ * the per-source breakdown from the CEA report is the next parser change.
+ */
+export function resolveCapacityData(
+  mock: Dataset<CapacityData>,
+  snapshot?: NppInstalledCapacitySnapshot | null,
+): Dataset<CapacityData> {
+  if (!snapshot || snapshot.meta.status !== "live" || snapshot.points.length === 0) {
+    return mock;
+  }
+
+  // Build period → live point, keyed by quarter-end month.
+  const livePoints = new Map<string, NppInstalledCapacityPoint>();
+  for (const p of snapshot.points) {
+    const monthNum = Number(p.asOf.slice(5, 7));
+    if (monthNum === QUARTER_END_MONTH[p.quarter]) {
+      livePoints.set(p.period, p);
+    }
+  }
+  if (livePoints.size === 0) return mock;
+
+  let liveCount = 0;
+  const cumulative: CapacityCumulativePoint[] = mock.value.cumulative.map((m) => {
+    const live = livePoints.get(m.period);
+    if (!live) return m;
+    liveCount++;
+    return {
+      period: m.period,
+      fy: m.fy,
+      quarter: m.quarter,
+      totalGW: Math.round((live.totalMW / 1000) * 100) / 100,
+      renewableGW: Math.round((live.renewableMW / 1000) * 100) / 100,
+    };
+  });
+
+  const allLive = liveCount === mock.value.cumulative.length;
+  const meta: SourceMeta = allLive
+    ? snapshot.meta
+    : {
+        ...snapshot.meta,
+        note: `${liveCount}/${mock.value.cumulative.length} quarters are live; remaining quarters fall back to mock.${
+          snapshot.meta.note ? " " + snapshot.meta.note : ""
+        }`,
+      };
+
+  return {
+    meta,
+    value: {
+      // commissioning stays mock — CEA's installed-capacity report gives stock,
+      // not flow, and doesn't break out per-source additions.
+      commissioning: mock.value.commissioning,
+      cumulative,
+    },
+  };
 }

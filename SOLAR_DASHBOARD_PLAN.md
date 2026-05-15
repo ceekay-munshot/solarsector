@@ -49,14 +49,14 @@ therefore shows:
   last run. The quarterly-award, technology-mix and developer-league aggregates
   stay `Mock` — no historical-awards parser exists yet, so they are badged from
   `tenderAggregatesMeta` and never inherit the live tender-book badge.
-- **Capacity** → `Live` for the latest installed-capacity reading (CEA "All
-  India Installed Capacity" report via NPP). The ingestion Action now
-  auto-fetches `capacity1-YYYY-MM.xls` for every month from FY22 onward and
-  parses it via the `xlsx` library — the committed snapshot grows by one
-  point per month with each scheduled run. The cumulative time-series chart
-  still reads the mock historical series for now; wiring the live points
-  into the chart (and deriving per-quarter `commissioning` by differencing)
-  is a small follow-up.
+- **Capacity** → `Live` for **both the headline KPIs and the cumulative
+  time-series chart**. The ingestion Action auto-fetches `capacity1-YYYY-MM.xls`
+  for every month from FY22 onward and parses it via the `xlsx` library; the
+  resolver in `lib/dataStatus.ts` picks each quarter-end live reading and
+  splices it into the historical series. Per-quarter `commissioning` (broken
+  down by source) stays `Mock` and is badged from `capacityCommissioningMeta`
+  — extracting per-source columns from the CEA report is the next parser
+  change.
 - **Everything else** → `Mock` — ingestion parsers for these feeds are not
   built yet.
 - **Sources page** → every probe shows its real HTTP status and latency;
