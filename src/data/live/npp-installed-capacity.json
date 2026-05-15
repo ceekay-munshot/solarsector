@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "CEA Installed Capacity (NPP)",
     "sourceUrl": "https://npp.gov.in/publishedReports",
-    "lastChecked": "2026-05-15T12:20:13.851Z",
+    "lastChecked": "2026-05-15T12:28:22.657Z",
     "note": "Parsed 62 of 63 monthly installed-capacity readings from NPP/CEA."
   },
   "points": [
