@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "CEA Installed Capacity (NPP)",
     "sourceUrl": "https://npp.gov.in/publishedReports",
-    "lastChecked": "2026-05-15T11:05:29.385Z",
-    "note": "Parsed 60 of 62 monthly installed-capacity readings from NPP/CEA."
+    "lastChecked": "2026-05-15T11:44:49.931Z",
+    "note": "Parsed 61 of 62 monthly installed-capacity readings from NPP/CEA."
   },
   "points": [
     {
@@ -486,6 +486,14 @@
       "quarter": "Q4",
       "totalMW": 532739.72,
       "renewableMW": 223273.43
+    },
+    {
+      "asOf": "2026-04-30",
+      "period": "Q1 FY27",
+      "fy": "FY27",
+      "quarter": "Q1",
+      "totalMW": 537264.41,
+      "renewableMW": 227590.62
     }
   ]
 }
