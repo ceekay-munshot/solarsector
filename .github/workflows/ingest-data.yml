@@ -3,8 +3,8 @@ name: Ingest data snapshots
 # Refreshes the live data snapshots the dashboard reads:
 #   - src/data/live/seci-tenders.json
 #   - src/data/live/source-health.json
+#   - src/data/live/npp-installed-capacity.json
 # Runs on a daily schedule, on demand, and when ingestion code changes.
-# scripts/ingest.mjs has zero npm dependencies — no install step needed.
 
 on:
   schedule:
@@ -14,6 +14,8 @@ on:
     paths:
       - scripts/ingest.mjs
       - .github/workflows/ingest-data.yml
+      - package.json
+      - package-lock.json
 
 permissions:
   contents: write
@@ -33,6 +35,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run ingestion
         run: node scripts/ingest.mjs
@@ -41,7 +47,7 @@ jobs:
         run: |
           git config user.name "solarsector-ingest-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/data/live/seci-tenders.json src/data/live/source-health.json
+          git add src/data/live/seci-tenders.json src/data/live/source-health.json src/data/live/npp-installed-capacity.json
           if git diff --staged --quiet; then
             echo "No snapshot changes to commit."
           else

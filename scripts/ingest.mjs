@@ -11,8 +11,9 @@
  * health visible, and fail *gracefully* — never throw, always write an honest
  * snapshot so the UI can badge Live / Fallback / Pending correctly.
  */
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import * as XLSX from "xlsx";
 
 const ROOT = process.cwd();
 const LIVE_DIR = join(ROOT, "src", "data", "live");
@@ -50,6 +51,40 @@ async function safeFetch(url) {
       ok: false,
       status: 0,
       body: "",
+      latencyMs: Date.now() - start,
+      error: err && err.name === "AbortError" ? "Request timed out" : String(err?.message ?? err),
+    };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/** Binary variant of safeFetch — used for the NPP .xls downloads. */
+async function safeFetchBuffer(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  const start = Date.now();
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      redirect: "follow",
+      headers: {
+        "User-Agent": UA,
+        Accept: "application/vnd.ms-excel, application/octet-stream, */*",
+      },
+    });
+    const buffer = res.ok ? Buffer.from(await res.arrayBuffer()) : null;
+    return {
+      ok: res.ok,
+      status: res.status,
+      buffer,
+      latencyMs: Date.now() - start,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      status: 0,
+      buffer: null,
       latencyMs: Date.now() - start,
       error: err && err.name === "AbortError" ? "Request timed out" : String(err?.message ?? err),
     };
@@ -181,6 +216,204 @@ async function ingestSeci(now) {
 }
 
 /* ----------------------------------------------------------------------- */
+/* NPP — CEA monthly installed-capacity ingestion.                          */
+/* ----------------------------------------------------------------------- */
+
+const NPP_MONTH_ABBR = [
+  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
+];
+// Dashboard window starts at FY22 Q1 → Apr 2021. We attempt every month from
+// here through the current month; failures (e.g. month not yet published)
+// are silent.
+const NPP_WINDOW_START = { year: 2021, month: 4 };
+
+function nppCapacityUrl(year, monthNum) {
+  const abbr = NPP_MONTH_ABBR[monthNum - 1];
+  const mm = String(monthNum).padStart(2, "0");
+  return `https://npp.gov.in/public-reports/cea/monthly/installcap/${year}/${abbr}/capacity1-${year}-${mm}.xls`;
+}
+
+/** Map a (calendar year, calendar month) to its Indian-fiscal-year period. */
+function nppPeriodFromMonth(year, monthNum) {
+  const fyYear = monthNum >= 4 ? year + 1 : year;
+  const quarter =
+    monthNum >= 4 && monthNum <= 6 ? "Q1"
+    : monthNum >= 7 && monthNum <= 9 ? "Q2"
+    : monthNum >= 10 && monthNum <= 12 ? "Q3"
+    : "Q4";
+  const fy = `FY${String(fyYear).slice(-2)}`;
+  return { fy, quarter, period: `${quarter} ${fy}` };
+}
+
+function nppLastDayOfMonth(year, monthNum) {
+  return new Date(Date.UTC(year, monthNum, 0)).getUTCDate();
+}
+
+function nppRound2(n) {
+  return Math.round(n * 100) / 100;
+}
+
+/**
+ * Parse one CEA "All India Installed Capacity (in MW) of Power Stations" XLS
+ * into a single point. Defensive: locates rows/columns by header text rather
+ * than fixed addresses, so cosmetic re-orderings of the CEA template don't
+ * break it. Returns null when the file isn't a recognisable capacity report.
+ */
+function parseCapacityXls(buffer, year, monthNum) {
+  let workbook;
+  try {
+    workbook = XLSX.read(buffer, { type: "buffer" });
+  } catch {
+    return null;
+  }
+  const sheet = workbook.Sheets[workbook.SheetNames[0]];
+  if (!sheet) return null;
+
+  const rows = XLSX.utils.sheet_to_json(sheet, {
+    header: 1,
+    defval: null,
+    blankrows: false,
+  });
+  if (!Array.isArray(rows) || rows.length === 0) return null;
+
+  const findCell = (predicate) => {
+    for (let r = 0; r < rows.length; r++) {
+      const row = rows[r];
+      if (!Array.isArray(row)) continue;
+      for (let c = 0; c < row.length; c++) {
+        if (predicate(row[c])) return { row: r, col: c };
+      }
+    }
+    return null;
+  };
+
+  const gtCell = findCell(
+    (v) => typeof v === "string" && /grand\s*total/i.test(v),
+  );
+  const resCell = findCell(
+    (v) => typeof v === "string" && v.trim().toUpperCase() === "RES",
+  );
+  if (!gtCell || !resCell) return null;
+
+  const totalRowMatch = findCell(
+    (v) =>
+      typeof v === "string" &&
+      /total\s+of\s+all\s+india/i.test(v.replace(/\s+/g, " ")),
+  );
+  if (!totalRowMatch) return null;
+  const totalRow = rows[totalRowMatch.row];
+  if (!Array.isArray(totalRow)) return null;
+
+  const totalMW = Number(totalRow[gtCell.col]);
+  const renewableMW = Number(totalRow[resCell.col]);
+
+  // Sanity-check: any reading outside the plausible Indian-grid range is
+  // almost certainly a layout mis-match, not real data.
+  if (!Number.isFinite(totalMW) || totalMW < 100_000 || totalMW > 1_500_000) {
+    return null;
+  }
+  if (
+    !Number.isFinite(renewableMW) ||
+    renewableMW < 10_000 ||
+    renewableMW > 700_000
+  ) {
+    return null;
+  }
+  // Renewable should be a strict subset of total.
+  if (renewableMW >= totalMW) return null;
+
+  const { fy, quarter, period } = nppPeriodFromMonth(year, monthNum);
+  const asOf = `${year}-${String(monthNum).padStart(2, "0")}-${String(
+    nppLastDayOfMonth(year, monthNum),
+  ).padStart(2, "0")}`;
+
+  return {
+    asOf,
+    period,
+    fy,
+    quarter,
+    totalMW: nppRound2(totalMW),
+    renewableMW: nppRound2(renewableMW),
+  };
+}
+
+async function ingestNppCapacity(now, snapshotPath) {
+  const today = new Date(now);
+  const endYear = today.getUTCFullYear();
+  const endMonth = today.getUTCMonth() + 1; // 1-12 (current calendar month)
+
+  // Build the (year, month) list from window start through the current month.
+  const targets = [];
+  for (let y = NPP_WINDOW_START.year; y <= endYear; y++) {
+    const minM = y === NPP_WINDOW_START.year ? NPP_WINDOW_START.month : 1;
+    const maxM = y === endYear ? endMonth : 12;
+    for (let m = minM; m <= maxM; m++) targets.push({ y, m });
+  }
+
+  const points = [];
+  let lastUrl = "";
+  for (const { y, m } of targets) {
+    const url = nppCapacityUrl(y, m);
+    lastUrl = url;
+    const res = await safeFetchBuffer(url);
+    if (!res.ok || !res.buffer) continue;
+    const point = parseCapacityXls(res.buffer, y, m);
+    if (point) points.push(point);
+  }
+
+  // Safety: if this run produced fewer points than the previously committed
+  // snapshot, preserve the previous data (treat as a degraded run, not a
+  // regression). Stops a single bad fetch from blowing away real history.
+  let preservedPoints = [];
+  try {
+    if (existsSync(snapshotPath)) {
+      const existing = JSON.parse(readFileSync(snapshotPath, "utf8"));
+      if (Array.isArray(existing?.points)) preservedPoints = existing.points;
+    }
+  } catch {
+    // ignore — treat as no preserved state
+  }
+
+  if (points.length < preservedPoints.length) {
+    return {
+      meta: {
+        status: "fallback",
+        sourceName: "CEA Installed Capacity (NPP)",
+        sourceUrl: "https://npp.gov.in/publishedReports",
+        lastChecked: now,
+        note: `Live NPP run produced ${points.length} of ${targets.length} attempted months — keeping previous snapshot (${preservedPoints.length} points). Last URL tried: ${lastUrl}`,
+      },
+      points: preservedPoints,
+    };
+  }
+
+  if (points.length === 0) {
+    return {
+      meta: {
+        status: "pending",
+        sourceName: "CEA Installed Capacity (NPP)",
+        sourceUrl: "https://npp.gov.in/publishedReports",
+        lastChecked: now,
+        note: `No parseable readings across ${targets.length} attempted months. Last URL tried: ${lastUrl}`,
+      },
+      points: [],
+    };
+  }
+
+  return {
+    meta: {
+      status: "live",
+      sourceName: "CEA Installed Capacity (NPP)",
+      sourceUrl: "https://npp.gov.in/publishedReports",
+      lastChecked: now,
+      note: `Parsed ${points.length} of ${targets.length} monthly installed-capacity readings from NPP/CEA.`,
+    },
+    points,
+  };
+}
+
+/* ----------------------------------------------------------------------- */
 /* Source-health probes.                                                    */
 /* ----------------------------------------------------------------------- */
 const PROBE_TARGETS = [
@@ -236,6 +469,13 @@ async function main() {
   );
   console.log(
     `  SECI tenders     : ${seci.meta.status.toUpperCase()} — ${seci.records.length} records`,
+  );
+
+  const nppCapacityPath = join(LIVE_DIR, "npp-installed-capacity.json");
+  const nppCapacity = await ingestNppCapacity(now, nppCapacityPath);
+  writeFileSync(nppCapacityPath, JSON.stringify(nppCapacity, null, 2) + "\n");
+  console.log(
+    `  NPP capacity     : ${nppCapacity.meta.status.toUpperCase()} — ${nppCapacity.points.length} monthly points`,
   );
 
   const probes = await probeSources(now);
