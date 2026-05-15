@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-15T12:28:22.657Z",
+    "lastChecked": "2026-05-15T12:38:07.004Z",
     "note": "Parsed 47 tender rows from SECI · 39 awarded rows aggregated into the award/mix series (period derived from the date in each tender title — typically issue date, not award date)."
   },
   "records": [
