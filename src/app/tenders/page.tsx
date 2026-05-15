@@ -15,7 +15,11 @@ import { SectionTitle } from "@/components/primitives/SectionTitle";
 import { Tag } from "@/components/primitives/Tag";
 import { DataTable } from "@/components/tables/DataTable";
 import { PlayerTable } from "@/components/tables/PlayerTable";
-import { tenderAggregatesMeta, tenderData } from "@/data/datasets";
+import {
+  tenderAggregatesMeta,
+  tenderData,
+  tenderPlayersMeta,
+} from "@/data/datasets";
 import { fyOf } from "@/data/periods";
 import { CHART, TECH_COLORS, chartRows } from "@/lib/chartTheme";
 import { filterByPeriod, matches } from "@/lib/filterData";
@@ -174,6 +178,7 @@ export default function TendersPage() {
         datasets={[
           { label: "Tender book (SECI)", meta: tenderData.meta },
           { label: "Award aggregates", meta: tenderAggregatesMeta },
+          { label: "Developer league", meta: tenderPlayersMeta },
         ]}
       />
 
@@ -284,7 +289,7 @@ export default function TendersPage() {
         <ChartCard
           title="Awards by developer"
           subtitle={`${players.length} developers · cumulative awarded capacity, FY22–FY26`}
-          meta={tenderAggregatesMeta}
+          meta={tenderPlayersMeta}
         >
           <PlayerTable
             rows={players}

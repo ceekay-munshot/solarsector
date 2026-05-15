@@ -169,6 +169,17 @@ export interface TenderData {
 export interface SeciLiveSnapshot {
   meta: SourceMeta;
   records: TenderRecord[];
+  /**
+   * Optional quarterly aggregates derived from awarded SECI Tender Results
+   * rows. Older snapshots written before the aggregator was added don't
+   * carry this; the resolver gracefully falls back to mock when absent.
+   * Note: period mapping uses the date inside each tender title (typically
+   * the issue date, not the award date) — known approximation.
+   */
+  aggregates?: {
+    quarterlyAwards: TenderAwardPoint[];
+    mix: TenderMixPoint[];
+  };
 }
 
 /* ----------------------------------------------------------------------- */

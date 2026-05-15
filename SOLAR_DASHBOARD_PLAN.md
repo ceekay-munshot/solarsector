@@ -45,10 +45,15 @@ As of the latest ingestion run (2026-05-14), **6 of 7 tracked sources are
 reachable** — only CERC Recent ROPs failed its health probe. The dashboard
 therefore shows:
 
-- **Tenders** → `Live` for the tender book: SECI was fetched and parsed on the
-  last run. The quarterly-award, technology-mix and developer-league aggregates
-  stay `Mock` — no historical-awards parser exists yet, so they are badged from
-  `tenderAggregatesMeta` and never inherit the live tender-book badge.
+- **Tenders** → `Live` for the tender book and the **award + tech-mix
+  aggregates** — SECI's Tender Results page is parsed and rolled up into
+  per-quarter awarded capacity and per-tech mix. The aggregator filters for
+  results-page rows (which the parser overrides as `Awarded`, since SECI's
+  RfS-heavy titles otherwise confuse the keyword stage classifier). Period
+  mapping uses the date inside each tender title (typically the *issue*
+  date, not the award date) — known approximation, called out in the meta
+  note. The **developer league** stays `Mock` and is badged from
+  `tenderPlayersMeta` — extracting winner names is the next parser change.
 - **Capacity** → fully `Live` for the five conventional sources (Solar /
   Wind / Hydro / Thermal / Nuclear). The ingestion Action auto-fetches
   `capacity1-YYYY-MM.xls` for every month from Mar 2021 onward; the parser
