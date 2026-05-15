@@ -9,7 +9,6 @@
  */
 import {
   capacityData,
-  capacityLatest,
   dcrData,
   demandData,
   ippData,
@@ -26,7 +25,7 @@ import {
   formatTariff,
 } from "@/lib/format";
 import { pctChange } from "@/lib/seededRandom";
-import type { DataStatus, Dataset, InsightItem, KpiStat } from "@/lib/types";
+import type { Dataset, InsightItem, KpiStat } from "@/lib/types";
 
 const dcr = dcrData.value;
 const tenders = tenderData.value;
@@ -57,21 +56,6 @@ const priorAnnualPeak = Math.max(...priorFyMonths.map((m) => m.peakGW));
 const tenderBookMW = tenders.records.reduce((acc, r) => acc + r.capacityMW, 0);
 const ippPipelineMW = ipp.reduce((acc, p) => acc + p.pipelineMW, 0);
 const moduleCellGap = dcrLatest.moduleMW - dcrLatest.cellMW;
-
-// Live CEA installed-capacity reading via NPP, when available. The latest
-// point drives the RE-base KPI; the sparkline stays on mock history until
-// backfill lands.
-const liveCapacityPoint =
-  capacityLatest.meta.status === "live" && capacityLatest.points.length > 0
-    ? capacityLatest.points[capacityLatest.points.length - 1]
-    : null;
-const reBaseGW = liveCapacityPoint
-  ? liveCapacityPoint.renewableMW / 1000
-  : capLatest.renewableGW;
-const reBaseStatus: DataStatus = liveCapacityPoint
-  ? capacityLatest.meta.status
-  : capacityData.meta.status;
-const reBasePeriod = liveCapacityPoint?.period ?? LATEST_PERIOD;
 
 export const overviewKpis: KpiStat[] = [
   {
@@ -133,15 +117,13 @@ export const overviewKpis: KpiStat[] = [
   {
     id: "re-base",
     label: "RE Installed Base",
-    value: formatGW(reBaseGW, 0),
-    deltaPct: liveCapacityPoint
-      ? undefined
-      : pctChange(capLatest.renewableGW, capPrev.renewableGW),
+    value: formatGW(capLatest.renewableGW, 0),
+    deltaPct: pctChange(capLatest.renewableGW, capPrev.renewableGW),
     deltaLabel: "QoQ",
     trend: capacity.cumulative.slice(-8).map((c) => c.renewableGW),
     tone: "emerald",
-    caption: `${reBasePeriod} · cumulative`,
-    status: reBaseStatus,
+    caption: `${LATEST_PERIOD} · cumulative`,
+    status: capacityData.meta.status,
   },
   {
     id: "peak-demand",
