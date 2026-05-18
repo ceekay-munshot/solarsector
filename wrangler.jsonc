@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "solarsector",
+  "compatibility_date": "2026-05-18",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "build": {
+    "command": "npm run build"
+  }
+}
