@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-19T05:15:29.841Z",
-    "note": "Parsed 47 tender rows from SECI on the last run."
+    "lastChecked": "2026-05-20T05:34:48.706Z",
+    "note": "Parsed 46 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -76,16 +76,6 @@
       "stage": "Announced",
       "date": "09/04/2026",
       "period": "Q2 FY27"
-    },
-    {
-      "id": "seci-live-7",
-      "title": "SECI000241 SECI-2026-TN000005 --> --> SECI/C&P/IPP/17/0001/26-27 RfP for Supply of 80 MW Power o",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 80,
-      "stage": "Announced",
-      "date": "01/26-27",
-      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-0",
