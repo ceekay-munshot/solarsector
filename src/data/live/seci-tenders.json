@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-21T05:39:00.844Z",
+    "lastChecked": "2026-05-22T05:15:58.186Z",
     "note": "Parsed 46 tender rows from SECI on the last run."
   },
   "records": [
@@ -19,6 +19,16 @@
     },
     {
       "id": "seci-live-1",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-2",
       "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
       "agency": "SECI",
       "tech": "Solar",
@@ -28,7 +38,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-2",
+      "id": "seci-live-3",
       "title": "SECI000250 SECI-2026-TN000008 --> --> SECI/C&P/IPP/12/0003/26-27 RfS for 2000 MW ISTS-Connected ",
       "agency": "SECI",
       "tech": "Wind",
@@ -38,7 +48,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000230 SECI-2025-TN000030 2025_SECI_823918_1 --> --> SECI/C&P/IPP/15/0017/25-26 RfS for Sett",
       "agency": "SECI",
       "tech": "BESS",
@@ -46,16 +56,6 @@
       "stage": "Announced",
       "date": "17/25-26",
       "period": "Q1 FY27"
-    },
-    {
-      "id": "seci-live-4",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-5",
