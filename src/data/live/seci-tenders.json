@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-26T05:15:48.030Z",
-    "note": "Parsed 46 tender rows from SECI on the last run."
+    "lastChecked": "2026-05-27T05:45:06.225Z",
+    "note": "Parsed 45 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -66,16 +66,6 @@
       "stage": "Announced",
       "date": "17/25-26",
       "period": "Q1 FY27"
-    },
-    {
-      "id": "seci-live-6",
-      "title": "SECI000242 2026_SECI_834703_1 --> --> GEM/2026/B/7428171 Internet Leased Line Services for 10 MW",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 10,
-      "stage": "Announced",
-      "date": "09/04/2026",
-      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-0",
