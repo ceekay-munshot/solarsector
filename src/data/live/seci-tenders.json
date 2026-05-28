@@ -3,12 +3,22 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-27T05:45:06.225Z",
+    "lastChecked": "2026-05-28T05:39:43.703Z",
     "note": "Parsed 45 tender rows from SECI on the last run."
   },
   "records": [
     {
       "id": "seci-live-0",
+      "title": "SECI000250 SECI-2026-TN000008 --> --> SECI/C&P/IPP/12/0003/26-27 RfS for 2000 MW ISTS-Connected ",
+      "agency": "SECI",
+      "tech": "Wind",
+      "capacityMW": 2000,
+      "stage": "Announced",
+      "date": "03/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-1",
       "title": "SECI000229 SECI-2025-TN000029 2025_SECI_823917_1 --> --> SECI/C&P/IPP/13/0016/25-26 RfS for Supp",
       "agency": "SECI",
       "tech": "FDRE",
@@ -18,7 +28,7 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-1",
+      "id": "seci-live-2",
       "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
       "agency": "SECI",
       "tech": "Solar",
@@ -28,7 +38,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-2",
+      "id": "seci-live-3",
       "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
       "agency": "SECI",
       "tech": "RTC",
@@ -38,23 +48,13 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
       "agency": "SECI",
       "tech": "Solar",
       "capacityMW": 88,
       "stage": "Announced",
       "date": "01/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-4",
-      "title": "SECI000250 SECI-2026-TN000008 --> --> SECI/C&P/IPP/12/0003/26-27 RfS for 2000 MW ISTS-Connected ",
-      "agency": "SECI",
-      "tech": "Wind",
-      "capacityMW": 2000,
-      "stage": "Announced",
-      "date": "03/26-27",
       "period": "Q4 FY27"
     },
     {
