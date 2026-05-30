@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-05-29T05:42:14.932Z",
+    "lastChecked": "2026-05-30T05:03:14.293Z",
     "note": "Parsed 45 tender rows from SECI on the last run."
   },
   "records": [
@@ -29,26 +29,6 @@
     },
     {
       "id": "seci-live-2",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-3",
-      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
-      "agency": "SECI",
-      "tech": "RTC",
-      "capacityMW": 1000,
-      "stage": "Announced",
-      "date": "20/25-26",
-      "period": "Q1 FY27"
-    },
-    {
-      "id": "seci-live-4",
       "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
       "agency": "SECI",
       "tech": "Solar",
@@ -58,13 +38,33 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-5",
+      "id": "seci-live-3",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-4",
       "title": "SECI000230 SECI-2025-TN000030 2025_SECI_823918_1 --> --> SECI/C&P/IPP/15/0017/25-26 RfS for Sett",
       "agency": "SECI",
       "tech": "BESS",
       "capacityMW": 1500,
       "stage": "Announced",
       "date": "17/25-26",
+      "period": "Q1 FY27"
+    },
+    {
+      "id": "seci-live-5",
+      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
+      "agency": "SECI",
+      "tech": "RTC",
+      "capacityMW": 1000,
+      "stage": "Announced",
+      "date": "20/25-26",
       "period": "Q1 FY27"
     },
     {
