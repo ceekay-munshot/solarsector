@@ -3,13 +3,13 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-06-15T06:40:18.627Z",
+    "lastChecked": "2026-06-16T06:45:52.989Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
     {
       "id": "seci-live-0",
-      "title": "SECI000258 SECI-2026-TN000014 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assured Peak Supply of ",
+      "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
       "agency": "SECI",
       "tech": "FDRE",
       "capacityMW": 1200,
