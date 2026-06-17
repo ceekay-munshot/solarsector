@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-06-16T06:45:52.989Z",
+    "lastChecked": "2026-06-17T06:29:53.057Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
@@ -49,6 +49,16 @@
     },
     {
       "id": "seci-live-4",
+      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
+      "agency": "SECI",
+      "tech": "RTC",
+      "capacityMW": 1000,
+      "stage": "Announced",
+      "date": "20/25-26",
+      "period": "Q1 FY27"
+    },
+    {
+      "id": "seci-live-5",
       "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
       "agency": "SECI",
       "tech": "Solar",
@@ -58,7 +68,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-5",
+      "id": "seci-live-6",
       "title": "SECI000250 SECI-2026-TN000008 --> --> SECI/C&P/IPP/12/0003/26-27 RfS for 2000 MW ISTS-Connected ",
       "agency": "SECI",
       "tech": "Wind",
@@ -66,16 +76,6 @@
       "stage": "Announced",
       "date": "03/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-6",
-      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
-      "agency": "SECI",
-      "tech": "RTC",
-      "capacityMW": 1000,
-      "stage": "Announced",
-      "date": "20/25-26",
-      "period": "Q1 FY27"
     },
     {
       "id": "seci-live-7",
