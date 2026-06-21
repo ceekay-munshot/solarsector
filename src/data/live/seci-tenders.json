@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-06-20T05:46:59.196Z",
-    "note": "Parsed 47 tender rows from SECI on the last run."
+    "lastChecked": "2026-06-21T06:20:25.858Z",
+    "note": "Parsed 46 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -76,16 +76,6 @@
       "stage": "Announced",
       "date": "03/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-7",
-      "title": "SECI000230 SECI-2025-TN000030 2025_SECI_823918_1 --> --> SECI/C&P/IPP/15/0017/25-26 RfS for Sett",
-      "agency": "SECI",
-      "tech": "BESS",
-      "capacityMW": 1500,
-      "stage": "Announced",
-      "date": "17/25-26",
-      "period": "Q1 FY27"
     },
     {
       "id": "seci-live-0",
