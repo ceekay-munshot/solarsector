@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-06-25T05:33:42.560Z",
+    "lastChecked": "2026-06-26T05:40:24.662Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
@@ -19,6 +19,16 @@
     },
     {
       "id": "seci-live-1",
+      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
+      "agency": "SECI",
+      "tech": "RTC",
+      "capacityMW": 1000,
+      "stage": "Announced",
+      "date": "20/25-26",
+      "period": "Q1 FY27"
+    },
+    {
+      "id": "seci-live-2",
       "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
       "agency": "SECI",
       "tech": "FDRE",
@@ -28,7 +38,7 @@
       "period": "Q1 FY28"
     },
     {
-      "id": "seci-live-2",
+      "id": "seci-live-3",
       "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
       "agency": "SECI",
       "tech": "Solar",
@@ -38,7 +48,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000260 2026_SECI_841005_1 --> --> GEM/2026/B/7636230 Internet Leased Line Services for 10 MW",
       "agency": "SECI",
       "tech": "Solar",
@@ -48,23 +58,13 @@
       "period": "Q2 FY27"
     },
     {
-      "id": "seci-live-4",
+      "id": "seci-live-5",
       "title": "SECI000229 SECI-2025-TN000029 2025_SECI_823917_1 --> --> SECI/C&P/IPP/13/0016/25-26 RfS for Supp",
       "agency": "SECI",
       "tech": "FDRE",
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "16/25-26",
-      "period": "Q1 FY27"
-    },
-    {
-      "id": "seci-live-5",
-      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
-      "agency": "SECI",
-      "tech": "RTC",
-      "capacityMW": 1000,
-      "stage": "Announced",
-      "date": "20/25-26",
       "period": "Q1 FY27"
     },
     {
