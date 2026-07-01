@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-06-30T05:36:35.640Z",
+    "lastChecked": "2026-07-01T05:56:40.793Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
@@ -25,7 +25,7 @@
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "20/25-26",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-2",
@@ -39,6 +39,16 @@
     },
     {
       "id": "seci-live-3",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-4",
       "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
       "agency": "SECI",
       "tech": "Solar",
@@ -48,7 +58,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-4",
+      "id": "seci-live-5",
       "title": "SECI000260 2026_SECI_841005_1 --> --> GEM/2026/B/7636230 Internet Leased Line Services for 10 MW",
       "agency": "SECI",
       "tech": "Solar",
@@ -58,24 +68,14 @@
       "period": "Q2 FY27"
     },
     {
-      "id": "seci-live-5",
+      "id": "seci-live-6",
       "title": "SECI000229 SECI-2025-TN000029 2025_SECI_823917_1 --> --> SECI/C&P/IPP/13/0016/25-26 RfS for Supp",
       "agency": "SECI",
       "tech": "FDRE",
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "16/25-26",
-      "period": "Q1 FY27"
-    },
-    {
-      "id": "seci-live-6",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-7",
@@ -95,7 +95,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "13/25-26",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-1",
@@ -135,7 +135,7 @@
       "capacityMW": 125,
       "stage": "Announced",
       "date": "18/24-25",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-5",
@@ -145,7 +145,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "19/24-25",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-6",
@@ -155,7 +155,7 @@
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "14/24-25",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-7",
@@ -165,7 +165,7 @@
       "capacityMW": 2000,
       "stage": "Announced",
       "date": "13/24-25",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-8",
@@ -215,7 +215,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "23/23-24",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-13",
@@ -225,7 +225,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "20/23-24",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-14",
@@ -235,7 +235,7 @@
       "capacityMW": 1500,
       "stage": "Announced",
       "date": "17/23-24",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-15",
@@ -245,7 +245,7 @@
       "capacityMW": 1500,
       "stage": "Announced",
       "date": "16/23-24",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-16",
@@ -255,7 +255,7 @@
       "capacityMW": 5,
       "stage": "Awarded",
       "date": "26/10/2023",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-17",
@@ -375,7 +375,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "14/07/2021",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-29",
@@ -385,7 +385,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "25/05/2021",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-30",
@@ -395,7 +395,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "15/04/2021",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-31",
@@ -415,7 +415,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "21/12/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-33",
@@ -425,7 +425,7 @@
       "capacityMW": 1070,
       "stage": "Announced",
       "date": "16/07/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-34",
@@ -435,7 +435,7 @@
       "capacityMW": 4,
       "stage": "Awarded",
       "date": "13/01/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-35",
@@ -445,7 +445,7 @@
       "capacityMW": 5000,
       "stage": "Announced",
       "date": "17/03/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-36",
@@ -455,7 +455,7 @@
       "capacityMW": 2000,
       "stage": "Announced",
       "date": "20/03/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-37",
@@ -465,7 +465,7 @@
       "capacityMW": 2000,
       "stage": "Announced",
       "date": "20/03/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     },
     {
       "id": "seci-live-38",
@@ -475,7 +475,7 @@
       "capacityMW": 1200,
       "stage": "Announced",
       "date": "14/01/2020",
-      "period": "Q1 FY27"
+      "period": "Q2 FY27"
     }
   ]
 }
