@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-07-01T05:56:40.793Z",
+    "lastChecked": "2026-07-02T05:11:46.734Z",
     "note": "Parsed 47 tender rows from SECI on the last run."
   },
   "records": [
@@ -19,9 +19,9 @@
     },
     {
       "id": "seci-live-1",
-      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Round",
+      "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Firm ",
       "agency": "SECI",
-      "tech": "RTC",
+      "tech": "FDRE",
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "20/25-26",
