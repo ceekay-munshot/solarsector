@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-07-23T04:44:08.174Z",
-    "note": "Parsed 54 tender rows from SECI on the last run."
+    "lastChecked": "2026-07-24T04:41:18.884Z",
+    "note": "Parsed 53 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -29,26 +29,6 @@
     },
     {
       "id": "seci-live-2",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-3",
-      "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
-      "agency": "SECI",
-      "tech": "FDRE",
-      "capacityMW": 1200,
-      "stage": "Announced",
-      "date": "06/26-27",
-      "period": "Q1 FY28"
-    },
-    {
-      "id": "seci-live-4",
       "title": "SECI000262 SECI-2026-TN000016 2026_SECI_842835_1 --> --> SECI/C&P/OP/11/0002/26-27 Tender for De",
       "agency": "SECI",
       "tech": "BESS",
@@ -58,6 +38,26 @@
       "period": "Q4 FY27"
     },
     {
+      "id": "seci-live-3",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-4",
+      "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
+      "agency": "SECI",
+      "tech": "FDRE",
+      "capacityMW": 1200,
+      "stage": "Announced",
+      "date": "06/26-27",
+      "period": "Q1 FY28"
+    },
+    {
       "id": "seci-live-5",
       "title": "SECI000240 SECI-2026-TN000004 --> --> SECI/C&P/IPP/13/0020/25-26 RfS for Supply of 1000 MW Firm ",
       "agency": "SECI",
@@ -65,16 +65,6 @@
       "capacityMW": 1000,
       "stage": "Announced",
       "date": "20/25-26",
-      "period": "Q2 FY27"
-    },
-    {
-      "id": "seci-live-6",
-      "title": "SECI000260 2026_SECI_841005_1 --> --> GEM/2026/B/7636230 Internet Leased Line Services for 10 MW",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 10,
-      "stage": "Announced",
-      "date": "08/06/2026",
       "period": "Q2 FY27"
     },
     {
