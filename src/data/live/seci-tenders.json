@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-07-31T04:51:27.043Z",
+    "lastChecked": "2026-08-01T04:44:58.620Z",
     "note": "Parsed 53 tender rows from SECI on the last run."
   },
   "records": [
@@ -39,16 +39,6 @@
     },
     {
       "id": "seci-live-3",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-4",
       "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
       "agency": "SECI",
       "tech": "FDRE",
@@ -56,6 +46,16 @@
       "stage": "Announced",
       "date": "06/26-27",
       "period": "Q1 FY28"
+    },
+    {
+      "id": "seci-live-4",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-5",
