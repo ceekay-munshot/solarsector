@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-08-13T03:34:54.704Z",
+    "lastChecked": "2026-08-14T03:32:06.871Z",
     "note": "Parsed 54 tender rows from SECI on the last run."
   },
   "records": [
@@ -29,6 +29,16 @@
     },
     {
       "id": "seci-live-2",
+      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 500,
+      "stage": "Announced",
+      "date": "02/26-27",
+      "period": "Q4 FY27"
+    },
+    {
+      "id": "seci-live-3",
       "title": "SECI000269 2026_SECI_847344_1 --> --> GEM/2026/B/7883396 The procurement of Phasor Measurement U",
       "agency": "SECI",
       "tech": "BESS",
@@ -38,21 +48,11 @@
       "period": "Q1 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000262 SECI-2026-TN000016 2026_SECI_842835_1 --> --> SECI/C&P/OP/11/0002/26-27 Tender for De",
       "agency": "SECI",
       "tech": "BESS",
       "capacityMW": 70,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-4",
-      "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 500,
       "stage": "Announced",
       "date": "02/26-27",
       "period": "Q4 FY27"
