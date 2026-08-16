@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-08-15T02:28:39.524Z",
+    "lastChecked": "2026-08-16T02:36:50.941Z",
     "note": "Parsed 55 tender rows from SECI on the last run."
   },
   "records": [
