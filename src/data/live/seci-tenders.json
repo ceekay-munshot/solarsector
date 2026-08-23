@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-08-22T02:30:39.367Z",
-    "note": "Parsed 55 tender rows from SECI on the last run."
+    "lastChecked": "2026-08-23T02:39:42.257Z",
+    "note": "Parsed 54 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -56,16 +56,6 @@
       "stage": "Announced",
       "date": "02/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-5",
-      "title": "SECI000258 SECI-2026-TN000014 2026_SECI_841613_1 --> --> SECI/C&P/IPP/13/0006/26-27 RfS for assu",
-      "agency": "SECI",
-      "tech": "FDRE",
-      "capacityMW": 1500,
-      "stage": "Announced",
-      "date": "06/26-27",
-      "period": "Q1 FY28"
     },
     {
       "id": "seci-live-0",
