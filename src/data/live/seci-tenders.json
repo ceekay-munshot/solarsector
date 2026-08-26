@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-08-25T02:33:43.393Z",
+    "lastChecked": "2026-08-26T02:41:34.665Z",
     "note": "Parsed 54 tender rows from SECI on the last run."
   },
   "records": [
@@ -29,6 +29,16 @@
     },
     {
       "id": "seci-live-2",
+      "title": "SECI000269 2026_SECI_847344_1 --> --> GEM/2026/B/7883396 The procurement of Phasor Measurement U",
+      "agency": "SECI",
+      "tech": "BESS",
+      "capacityMW": 100,
+      "stage": "Announced",
+      "date": "06/08/2026",
+      "period": "Q1 FY27"
+    },
+    {
+      "id": "seci-live-3",
       "title": "SECI000263 SECI-2026-TN000017 --> --> SECI/C&P/OP/11/0003/26-27 Setting up of grid-connected 45.",
       "agency": "SECI",
       "tech": "Wind",
@@ -38,7 +48,7 @@
       "period": "Q4 FY27"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000249 SECI-2026-TN000007 --> --> SECI/C&P/IPP/13/0002/26-27 RfS for assured Peak Supply of ",
       "agency": "SECI",
       "tech": "Solar",
@@ -46,16 +56,6 @@
       "stage": "Announced",
       "date": "02/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-4",
-      "title": "SECI000269 2026_SECI_847344_1 --> --> GEM/2026/B/7883396 The procurement of Phasor Measurement U",
-      "agency": "SECI",
-      "tech": "BESS",
-      "capacityMW": 100,
-      "stage": "Announced",
-      "date": "06/08/2026",
-      "period": "Q1 FY27"
     },
     {
       "id": "seci-live-0",
