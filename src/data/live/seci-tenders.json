@@ -3,13 +3,13 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-09-06T06:07:29.789Z",
+    "lastChecked": "2026-09-07T06:15:02.886Z",
     "note": "Parsed 57 tender rows from SECI on the last run."
   },
   "records": [
     {
       "id": "seci-live-0",
-      "title": "SECI000278 SECI-2026-TN000027 --> --> SECI/C&P/IPP/15/0009/26-27 700 MW ISTS-Connected Solar PV ",
+      "title": "SECI000278 SECI-2026-TN000027 2026_SECI_850226_1 --> --> SECI/C&P/IPP/15/0009/26-27 700 MW ISTS-",
       "agency": "SECI",
       "tech": "Solar",
       "capacityMW": 700,
