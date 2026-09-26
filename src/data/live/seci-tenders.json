@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-09-25T06:14:18.578Z",
-    "note": "Parsed 57 tender rows from SECI on the last run."
+    "lastChecked": "2026-09-26T06:14:05.591Z",
+    "note": "Parsed 56 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -66,16 +66,6 @@
       "stage": "Announced",
       "date": "01/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-6",
-      "title": "SECI000269 2026_SECI_847344_1 --> --> GEM/2026/B/7883396 The procurement of Phasor Measurement U",
-      "agency": "SECI",
-      "tech": "BESS",
-      "capacityMW": 100,
-      "stage": "Announced",
-      "date": "06/08/2026",
-      "period": "Q1 FY27"
     },
     {
       "id": "seci-live-0",
