@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-10-02T07:07:47.588Z",
-    "note": "Parsed 58 tender rows from SECI on the last run."
+    "lastChecked": "2026-10-03T06:40:56.106Z",
+    "note": "Parsed 57 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -76,16 +76,6 @@
       "stage": "Announced",
       "date": "08/26-27",
       "period": "Q2 FY28"
-    },
-    {
-      "id": "seci-live-7",
-      "title": "SECI000252 SECI-2026-TN000009 2026_SECI_837481_1 --> --> SECI/C&P/OP/11/0001/26-27 BoS Tender fo",
-      "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 88,
-      "stage": "Announced",
-      "date": "01/26-27",
-      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-0",
