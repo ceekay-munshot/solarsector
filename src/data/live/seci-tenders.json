@@ -3,7 +3,7 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-10-14T06:18:30.149Z",
+    "lastChecked": "2026-10-15T06:00:30.365Z",
     "note": "Parsed 59 tender rows from SECI on the last run."
   },
   "records": [
@@ -29,6 +29,16 @@
     },
     {
       "id": "seci-live-2",
+      "title": "SECI000278 SECI-2026-TN000027 2026_SECI_850226_1 --> --> SECI/C&P/IPP/15/0009/26-27 700 MW ISTS-",
+      "agency": "SECI",
+      "tech": "Solar",
+      "capacityMW": 700,
+      "stage": "Announced",
+      "date": "09/26-27",
+      "period": "Q2 FY28"
+    },
+    {
+      "id": "seci-live-3",
       "title": "SECI000289 SECI-2026-TN000035 --> --> SECI/C&P/IPP/13/0012/26-27 RfS for Assured Peak Supply of ",
       "agency": "SECI",
       "tech": "FDRE",
@@ -38,7 +48,7 @@
       "period": "Q3 FY28"
     },
     {
-      "id": "seci-live-3",
+      "id": "seci-live-4",
       "title": "SECI000288 SECI-2026-TN000034 --> --> SECI/C&P/IPP/12/0011/26-27 RfS for 1200 MW ISTS-Connected ",
       "agency": "SECI",
       "tech": "Wind",
@@ -46,16 +56,6 @@
       "stage": "Announced",
       "date": "11/26-27",
       "period": "Q3 FY28"
-    },
-    {
-      "id": "seci-live-4",
-      "title": "SECI000263 SECI-2026-TN000017 --> --> SECI/C&P/OP/11/0003/26-27 Setting up of grid-connected 45.",
-      "agency": "SECI",
-      "tech": "Wind",
-      "capacityMW": 45.6,
-      "stage": "Announced",
-      "date": "03/26-27",
-      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-5",
@@ -69,13 +69,13 @@
     },
     {
       "id": "seci-live-6",
-      "title": "SECI000278 SECI-2026-TN000027 2026_SECI_850226_1 --> --> SECI/C&P/IPP/15/0009/26-27 700 MW ISTS-",
+      "title": "SECI000263 SECI-2026-TN000017 --> --> SECI/C&P/OP/11/0003/26-27 Setting up of grid-connected 45.",
       "agency": "SECI",
-      "tech": "Solar",
-      "capacityMW": 700,
+      "tech": "Wind",
+      "capacityMW": 45.6,
       "stage": "Announced",
-      "date": "09/26-27",
-      "period": "Q2 FY28"
+      "date": "03/26-27",
+      "period": "Q4 FY27"
     },
     {
       "id": "seci-live-7",
