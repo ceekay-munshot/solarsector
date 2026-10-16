@@ -3,8 +3,8 @@
     "status": "live",
     "sourceName": "SECI Tenders (live)",
     "sourceUrl": "https://www.seci.co.in/tenders",
-    "lastChecked": "2026-10-15T06:00:30.365Z",
-    "note": "Parsed 59 tender rows from SECI on the last run."
+    "lastChecked": "2026-10-16T05:59:03.721Z",
+    "note": "Parsed 57 tender rows from SECI on the last run."
   },
   "records": [
     {
@@ -76,26 +76,6 @@
       "stage": "Announced",
       "date": "03/26-27",
       "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-7",
-      "title": "SECI000262 SECI-2026-TN000016 2026_SECI_842835_1 --> --> SECI/C&P/OP/11/0002/26-27 Tender for De",
-      "agency": "SECI",
-      "tech": "BESS",
-      "capacityMW": 70,
-      "stage": "Announced",
-      "date": "02/26-27",
-      "period": "Q4 FY27"
-    },
-    {
-      "id": "seci-live-8",
-      "title": "SECI000274 SECI-2026-TN000024 --> --> SECI/C&P/IPP/15/0008/26-27 RfS for Utilization of 100 MWh ",
-      "agency": "SECI",
-      "tech": "BESS",
-      "capacityMW": 50,
-      "stage": "Announced",
-      "date": "08/26-27",
-      "period": "Q2 FY28"
     },
     {
       "id": "seci-live-0",
