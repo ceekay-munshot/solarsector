@@ -2,10 +2,10 @@
   "meta": {
     "status": "live",
     "sourceName": "Source health probes",
-    "lastChecked": "2026-11-04T07:38:23.320Z",
+    "lastChecked": "2026-11-05T07:59:58.004Z",
     "note": "6/7 tracked sources reachable on the last run."
   },
-  "generatedAt": "2026-11-04T07:38:23.320Z",
+  "generatedAt": "2026-11-05T07:59:58.004Z",
   "probes": [
     {
       "id": "seci-tenders",
@@ -13,9 +13,9 @@
       "url": "https://www.seci.co.in/tenders",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 652,
+      "latencyMs": 906,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "seci-results",
@@ -23,9 +23,9 @@
       "url": "https://www.seci.co.in/tenders/results",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 2348,
+      "latencyMs": 2409,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "cerc-orders",
@@ -33,19 +33,19 @@
       "url": "https://cercind.gov.in/recent_orders.html",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 2983,
+      "latencyMs": 2968,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "cerc-rops",
       "name": "CERC — Recent ROPs",
       "url": "https://cercind.gov.in/recent_rops.html",
       "status": "probe_failed",
-      "latencyMs": 686,
+      "latencyMs": 713,
       "ok": false,
       "error": "fetch failed",
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "npp-reports",
@@ -53,9 +53,9 @@
       "url": "https://npp.gov.in/publishedReports",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 4778,
+      "latencyMs": 4886,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "mnre-almm",
@@ -63,9 +63,9 @@
       "url": "https://mnre.gov.in/en/approved-list-of-models-and-manufacturers-almm/",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 2937,
+      "latencyMs": 3628,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     },
     {
       "id": "dcr-portal",
@@ -73,9 +73,9 @@
       "url": "https://solardcrportal.nise.res.in/",
       "status": "live",
       "httpStatus": 200,
-      "latencyMs": 1601,
+      "latencyMs": 1453,
       "ok": true,
-      "checkedAt": "2026-11-04T07:38:23.320Z"
+      "checkedAt": "2026-11-05T07:59:58.004Z"
     }
   ]
 }
